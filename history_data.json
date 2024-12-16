@@ -1,0 +1,1002 @@
+[
+    {
+        "history_id": "HID8358",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID96628",
+        "parking_id": "PID76053",
+        "latitude": 48.01051,
+        "longitude": 7.92168,
+        "distance": 21.2,
+        "datetime": "2024-03-26T21:17:00"
+    },
+    {
+        "history_id": "HID4050",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID85830",
+        "parking_id": "PID69639",
+        "latitude": 47.99449,
+        "longitude": 7.95285,
+        "distance": 31.61,
+        "datetime": "2024-11-29T08:32:00"
+    },
+    {
+        "history_id": "HID8204",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID41454",
+        "parking_id": "PID54659",
+        "latitude": 47.99557,
+        "longitude": 7.96356,
+        "distance": 5.86,
+        "datetime": "2023-10-07T06:22:00"
+    },
+    {
+        "history_id": "HID2140",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID61988",
+        "parking_id": "PID28652",
+        "latitude": 48.04898,
+        "longitude": 7.89404,
+        "distance": 16.76,
+        "datetime": "2024-09-22T22:28:00"
+    },
+    {
+        "history_id": "HID5269",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID53802",
+        "parking_id": "PID55287",
+        "latitude": 47.99141,
+        "longitude": 7.89636,
+        "distance": 38.42,
+        "datetime": "2024-04-04T20:03:00"
+    },
+    {
+        "history_id": "HID7622",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID22628",
+        "parking_id": "PID34897",
+        "latitude": 48.00015,
+        "longitude": 7.90756,
+        "distance": 23.23,
+        "datetime": "2024-11-02T09:04:00"
+    },
+    {
+        "history_id": "HID4625",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID80073",
+        "parking_id": "PID81166",
+        "latitude": 48.04433,
+        "longitude": 7.9037,
+        "distance": 7.99,
+        "datetime": "2024-08-22T01:00:00"
+    },
+    {
+        "history_id": "HID7328",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID33420",
+        "parking_id": "PID27111",
+        "latitude": 48.05714,
+        "longitude": 7.87591,
+        "distance": 22.3,
+        "datetime": "2024-05-07T15:41:00"
+    },
+    {
+        "history_id": "HID4115",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID22855",
+        "parking_id": "PID31215",
+        "latitude": 48.034,
+        "longitude": 7.8646,
+        "distance": 6.25,
+        "datetime": "2023-04-02T17:23:00"
+    },
+    {
+        "history_id": "HID9270",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID68533",
+        "parking_id": "PID34965",
+        "latitude": 48.03551,
+        "longitude": 7.86618,
+        "distance": 44.61,
+        "datetime": "2024-03-07T05:57:00"
+    },
+    {
+        "history_id": "HID5479",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID11873",
+        "parking_id": "PID83037",
+        "latitude": 48.01756,
+        "longitude": 7.92085,
+        "distance": 7.57,
+        "datetime": "2023-09-21T01:32:00"
+    },
+    {
+        "history_id": "HID2533",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID36711",
+        "parking_id": "PID78667",
+        "latitude": 47.99647,
+        "longitude": 7.92641,
+        "distance": 45.61,
+        "datetime": "2024-01-17T07:58:00"
+    },
+    {
+        "history_id": "HID3886",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID67797",
+        "parking_id": "PID85008",
+        "latitude": 48.03404,
+        "longitude": 7.90563,
+        "distance": 2.59,
+        "datetime": "2024-08-14T09:53:00"
+    },
+    {
+        "history_id": "HID5188",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID56537",
+        "parking_id": "PID62158",
+        "latitude": 48.00343,
+        "longitude": 7.93891,
+        "distance": 13.41,
+        "datetime": "2023-06-02T15:23:00"
+    },
+    {
+        "history_id": "HID8105",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID25893",
+        "parking_id": "PID63724",
+        "latitude": 48.01003,
+        "longitude": 7.91529,
+        "distance": 6.74,
+        "datetime": "2023-10-01T20:24:00"
+    },
+    {
+        "history_id": "HID4759",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID24790",
+        "parking_id": "PID96380",
+        "latitude": 47.99281,
+        "longitude": 7.95796,
+        "distance": 28.99,
+        "datetime": "2024-10-26T11:38:00"
+    },
+    {
+        "history_id": "HID7969",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID16557",
+        "parking_id": "PID77170",
+        "latitude": 47.9921,
+        "longitude": 7.8698,
+        "distance": 43.57,
+        "datetime": "2023-10-13T18:51:00"
+    },
+    {
+        "history_id": "HID7054",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID43001",
+        "parking_id": "PID54963",
+        "latitude": 48.02422,
+        "longitude": 7.90434,
+        "distance": 17.55,
+        "datetime": "2024-11-19T12:44:00"
+    },
+    {
+        "history_id": "HID8070",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID80404",
+        "parking_id": "PID93804",
+        "latitude": 48.04298,
+        "longitude": 7.94958,
+        "distance": 36.93,
+        "datetime": "2023-09-26T12:11:00"
+    },
+    {
+        "history_id": "HID7930",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID70276",
+        "parking_id": "PID89741",
+        "latitude": 48.03636,
+        "longitude": 7.91133,
+        "distance": 29.73,
+        "datetime": "2024-07-16T00:49:00"
+    },
+    {
+        "history_id": "HID6232",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID63869",
+        "parking_id": "PID89558",
+        "latitude": 48.04915,
+        "longitude": 7.91044,
+        "distance": 11.69,
+        "datetime": "2023-04-03T21:24:00"
+    },
+    {
+        "history_id": "HID2706",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID12517",
+        "parking_id": "PID50143",
+        "latitude": 48.06416,
+        "longitude": 7.86233,
+        "distance": 16.94,
+        "datetime": "2023-03-03T00:25:00"
+    },
+    {
+        "history_id": "HID9717",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID63797",
+        "parking_id": "PID86790",
+        "latitude": 48.02006,
+        "longitude": 7.96175,
+        "distance": 31.2,
+        "datetime": "2023-05-01T11:09:00"
+    },
+    {
+        "history_id": "HID1366",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID63503",
+        "parking_id": "PID52006",
+        "latitude": 48.01865,
+        "longitude": 7.94919,
+        "distance": 11.06,
+        "datetime": "2024-08-02T23:42:00"
+    },
+    {
+        "history_id": "HID4407",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID18893",
+        "parking_id": "PID39205",
+        "latitude": 48.02776,
+        "longitude": 7.87586,
+        "distance": 20.41,
+        "datetime": "2023-10-06T07:23:00"
+    },
+    {
+        "history_id": "HID3464",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID48351",
+        "parking_id": "PID77623",
+        "latitude": 48.0564,
+        "longitude": 7.88672,
+        "distance": 42.32,
+        "datetime": "2024-03-23T17:42:00"
+    },
+    {
+        "history_id": "HID9845",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID58235",
+        "parking_id": "PID28700",
+        "latitude": 48.03342,
+        "longitude": 7.9173,
+        "distance": 12.05,
+        "datetime": "2024-12-12T02:05:00"
+    },
+    {
+        "history_id": "HID7328",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID65671",
+        "parking_id": "PID76433",
+        "latitude": 48.00224,
+        "longitude": 7.9098,
+        "distance": 31.43,
+        "datetime": "2024-06-06T04:11:00"
+    },
+    {
+        "history_id": "HID3487",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID64717",
+        "parking_id": "PID27960",
+        "latitude": 48.02299,
+        "longitude": 7.90366,
+        "distance": 36.15,
+        "datetime": "2024-05-07T09:43:00"
+    },
+    {
+        "history_id": "HID6047",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID14762",
+        "parking_id": "PID41773",
+        "latitude": 48.04299,
+        "longitude": 7.96725,
+        "distance": 6.6,
+        "datetime": "2024-02-13T01:25:00"
+    },
+    {
+        "history_id": "HID7756",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID20390",
+        "parking_id": "PID41060",
+        "latitude": 48.05606,
+        "longitude": 7.8639,
+        "distance": 15.16,
+        "datetime": "2023-01-03T09:58:00"
+    },
+    {
+        "history_id": "HID9738",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID90270",
+        "parking_id": "PID70211",
+        "latitude": 48.01455,
+        "longitude": 7.95534,
+        "distance": 2.45,
+        "datetime": "2024-01-04T23:51:00"
+    },
+    {
+        "history_id": "HID9787",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID94643",
+        "parking_id": "PID14621",
+        "latitude": 48.02317,
+        "longitude": 7.87611,
+        "distance": 17.13,
+        "datetime": "2024-03-13T08:41:00"
+    },
+    {
+        "history_id": "HID8118",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID58381",
+        "parking_id": "PID41670",
+        "latitude": 47.99772,
+        "longitude": 7.88445,
+        "distance": 44.62,
+        "datetime": "2024-08-12T22:45:00"
+    },
+    {
+        "history_id": "HID6321",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID73028",
+        "parking_id": "PID76729",
+        "latitude": 48.00073,
+        "longitude": 7.93228,
+        "distance": 26.07,
+        "datetime": "2023-09-20T16:41:00"
+    },
+    {
+        "history_id": "HID5024",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID67027",
+        "parking_id": "PID85340",
+        "latitude": 48.03343,
+        "longitude": 7.94552,
+        "distance": 35.94,
+        "datetime": "2024-06-22T02:14:00"
+    },
+    {
+        "history_id": "HID3726",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID29237",
+        "parking_id": "PID13973",
+        "latitude": 48.03122,
+        "longitude": 7.94574,
+        "distance": 21.16,
+        "datetime": "2023-06-05T13:56:00"
+    },
+    {
+        "history_id": "HID9093",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID12787",
+        "parking_id": "PID60326",
+        "latitude": 48.06,
+        "longitude": 7.86201,
+        "distance": 8.21,
+        "datetime": "2023-12-09T22:59:00"
+    },
+    {
+        "history_id": "HID9283",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID69519",
+        "parking_id": "PID90754",
+        "latitude": 48.04274,
+        "longitude": 7.95075,
+        "distance": 2.6,
+        "datetime": "2023-07-30T11:41:00"
+    },
+    {
+        "history_id": "HID2447",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID68857",
+        "parking_id": "PID64226",
+        "latitude": 48.06184,
+        "longitude": 7.87418,
+        "distance": 1.74,
+        "datetime": "2024-02-20T03:47:00"
+    },
+    {
+        "history_id": "HID6206",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID94660",
+        "parking_id": "PID54275",
+        "latitude": 48.00252,
+        "longitude": 7.96377,
+        "distance": 4.24,
+        "datetime": "2024-06-05T02:18:00"
+    },
+    {
+        "history_id": "HID7434",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID26017",
+        "parking_id": "PID85714",
+        "latitude": 48.02078,
+        "longitude": 7.94925,
+        "distance": 18.22,
+        "datetime": "2023-11-30T15:41:00"
+    },
+    {
+        "history_id": "HID7347",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID75791",
+        "parking_id": "PID28285",
+        "latitude": 48.05367,
+        "longitude": 7.9088,
+        "distance": 29.21,
+        "datetime": "2023-10-19T08:19:00"
+    },
+    {
+        "history_id": "HID1201",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID84404",
+        "parking_id": "PID46178",
+        "latitude": 48.04245,
+        "longitude": 7.86016,
+        "distance": 19.59,
+        "datetime": "2024-12-15T08:32:00"
+    },
+    {
+        "history_id": "HID3292",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID71839",
+        "parking_id": "PID19271",
+        "latitude": 48.03513,
+        "longitude": 7.92822,
+        "distance": 29.92,
+        "datetime": "2023-01-23T00:32:00"
+    },
+    {
+        "history_id": "HID3021",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID88441",
+        "parking_id": "PID23338",
+        "latitude": 48.00526,
+        "longitude": 7.96575,
+        "distance": 25.55,
+        "datetime": "2023-06-03T11:14:00"
+    },
+    {
+        "history_id": "HID4181",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID68821",
+        "parking_id": "PID39115",
+        "latitude": 48.05488,
+        "longitude": 7.90503,
+        "distance": 46.09,
+        "datetime": "2023-07-03T09:20:00"
+    },
+    {
+        "history_id": "HID4598",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID84042",
+        "parking_id": "PID77222",
+        "latitude": 48.04685,
+        "longitude": 7.91034,
+        "distance": 20.39,
+        "datetime": "2023-02-11T01:00:00"
+    },
+    {
+        "history_id": "HID8975",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID66728",
+        "parking_id": "PID59815",
+        "latitude": 48.00096,
+        "longitude": 7.88177,
+        "distance": 42.77,
+        "datetime": "2023-05-07T20:43:00"
+    },
+    {
+        "history_id": "HID5493",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID93819",
+        "parking_id": "PID95578",
+        "latitude": 48.06637,
+        "longitude": 7.94159,
+        "distance": 43.07,
+        "datetime": "2023-07-01T04:21:00"
+    },
+    {
+        "history_id": "HID5919",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID33016",
+        "parking_id": "PID54506",
+        "latitude": 48.04107,
+        "longitude": 7.9041,
+        "distance": 17.76,
+        "datetime": "2023-12-29T21:31:00"
+    },
+    {
+        "history_id": "HID6278",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID99753",
+        "parking_id": "PID11934",
+        "latitude": 48.0605,
+        "longitude": 7.87681,
+        "distance": 11.39,
+        "datetime": "2023-01-19T14:41:00"
+    },
+    {
+        "history_id": "HID9715",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID29024",
+        "parking_id": "PID45647",
+        "latitude": 48.0342,
+        "longitude": 7.92762,
+        "distance": 16.73,
+        "datetime": "2023-08-18T00:13:00"
+    },
+    {
+        "history_id": "HID4742",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID66230",
+        "parking_id": "PID57998",
+        "latitude": 48.02263,
+        "longitude": 7.89077,
+        "distance": 33.11,
+        "datetime": "2024-12-06T08:43:00"
+    },
+    {
+        "history_id": "HID7329",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID48291",
+        "parking_id": "PID79798",
+        "latitude": 47.99173,
+        "longitude": 7.90631,
+        "distance": 5.1,
+        "datetime": "2023-01-17T09:51:00"
+    },
+    {
+        "history_id": "HID4550",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID55919",
+        "parking_id": "PID17605",
+        "latitude": 48.02846,
+        "longitude": 7.87433,
+        "distance": 27.78,
+        "datetime": "2024-10-13T18:51:00"
+    },
+    {
+        "history_id": "HID1413",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID59645",
+        "parking_id": "PID68210",
+        "latitude": 48.03261,
+        "longitude": 7.85673,
+        "distance": 29.4,
+        "datetime": "2024-08-18T15:31:00"
+    },
+    {
+        "history_id": "HID8086",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID60710",
+        "parking_id": "PID58949",
+        "latitude": 48.05138,
+        "longitude": 7.95422,
+        "distance": 12.31,
+        "datetime": "2023-07-13T05:53:00"
+    },
+    {
+        "history_id": "HID4992",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID72634",
+        "parking_id": "PID88195",
+        "latitude": 48.06408,
+        "longitude": 7.88752,
+        "distance": 6.72,
+        "datetime": "2023-04-28T11:36:00"
+    },
+    {
+        "history_id": "HID9900",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID72132",
+        "parking_id": "PID82642",
+        "latitude": 48.03595,
+        "longitude": 7.89963,
+        "distance": 28.91,
+        "datetime": "2024-02-16T16:45:00"
+    },
+    {
+        "history_id": "HID6303",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID49292",
+        "parking_id": "PID98733",
+        "latitude": 48.00908,
+        "longitude": 7.88205,
+        "distance": 1.78,
+        "datetime": "2024-05-28T19:35:00"
+    },
+    {
+        "history_id": "HID1158",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID98916",
+        "parking_id": "PID82704",
+        "latitude": 48.04698,
+        "longitude": 7.95897,
+        "distance": 11.71,
+        "datetime": "2023-02-04T06:19:00"
+    },
+    {
+        "history_id": "HID4807",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID80900",
+        "parking_id": "PID43903",
+        "latitude": 48.02994,
+        "longitude": 7.93353,
+        "distance": 15.33,
+        "datetime": "2024-07-02T10:51:00"
+    },
+    {
+        "history_id": "HID6609",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID82465",
+        "parking_id": "PID36077",
+        "latitude": 48.04999,
+        "longitude": 7.87469,
+        "distance": 27.15,
+        "datetime": "2024-08-21T05:47:00"
+    },
+    {
+        "history_id": "HID9233",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID47213",
+        "parking_id": "PID50623",
+        "latitude": 48.03578,
+        "longitude": 7.8713,
+        "distance": 15.29,
+        "datetime": "2023-04-03T01:57:00"
+    },
+    {
+        "history_id": "HID2998",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID36301",
+        "parking_id": "PID32925",
+        "latitude": 48.01534,
+        "longitude": 7.88312,
+        "distance": 41.37,
+        "datetime": "2023-06-28T07:10:00"
+    },
+    {
+        "history_id": "HID7478",
+        "review_text": "The property was nice, but a bit expensive for what it was.",
+        "user_id": "UID31927",
+        "parking_id": "PID63663",
+        "latitude": 48.04933,
+        "longitude": 7.94181,
+        "distance": 49.42,
+        "datetime": "2024-06-24T13:35:00"
+    },
+    {
+        "history_id": "HID3481",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID74240",
+        "parking_id": "PID77202",
+        "latitude": 48.04956,
+        "longitude": 7.85449,
+        "distance": 48.9,
+        "datetime": "2023-11-19T03:32:00"
+    },
+    {
+        "history_id": "HID3804",
+        "review_text": "It was okay, but the heating wasn't working well.",
+        "user_id": "UID53372",
+        "parking_id": "PID72898",
+        "latitude": 48.02431,
+        "longitude": 7.93562,
+        "distance": 24.19,
+        "datetime": "2024-02-03T10:17:00"
+    },
+    {
+        "history_id": "HID9841",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID49434",
+        "parking_id": "PID90260",
+        "latitude": 48.01838,
+        "longitude": 7.95899,
+        "distance": 45.88,
+        "datetime": "2024-02-17T01:46:00"
+    },
+    {
+        "history_id": "HID8044",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID25972",
+        "parking_id": "PID23627",
+        "latitude": 48.0305,
+        "longitude": 7.92388,
+        "distance": 11.63,
+        "datetime": "2024-01-28T20:45:00"
+    },
+    {
+        "history_id": "HID8588",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID14633",
+        "parking_id": "PID72547",
+        "latitude": 48.04547,
+        "longitude": 7.87595,
+        "distance": 3.57,
+        "datetime": "2024-09-27T20:19:00"
+    },
+    {
+        "history_id": "HID9641",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID93680",
+        "parking_id": "PID80478",
+        "latitude": 48.00354,
+        "longitude": 7.92298,
+        "distance": 33.13,
+        "datetime": "2024-08-31T08:39:00"
+    },
+    {
+        "history_id": "HID7746",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID75007",
+        "parking_id": "PID37126",
+        "latitude": 48.0575,
+        "longitude": 7.94666,
+        "distance": 5.01,
+        "datetime": "2023-12-19T05:25:00"
+    },
+    {
+        "history_id": "HID2800",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID58170",
+        "parking_id": "PID23122",
+        "latitude": 48.02334,
+        "longitude": 7.93107,
+        "distance": 40.44,
+        "datetime": "2023-07-04T19:58:00"
+    },
+    {
+        "history_id": "HID1182",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID93653",
+        "parking_id": "PID81793",
+        "latitude": 48.01584,
+        "longitude": 7.96143,
+        "distance": 20.43,
+        "datetime": "2024-10-21T02:49:00"
+    },
+    {
+        "history_id": "HID8706",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID79764",
+        "parking_id": "PID51140",
+        "latitude": 48.04236,
+        "longitude": 7.87794,
+        "distance": 22.0,
+        "datetime": "2024-04-29T15:16:00"
+    },
+    {
+        "history_id": "HID1717",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID56861",
+        "parking_id": "PID19170",
+        "latitude": 48.04729,
+        "longitude": 7.95478,
+        "distance": 49.16,
+        "datetime": "2024-11-12T19:36:00"
+    },
+    {
+        "history_id": "HID6594",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID36128",
+        "parking_id": "PID37721",
+        "latitude": 48.03381,
+        "longitude": 7.94197,
+        "distance": 32.33,
+        "datetime": "2024-12-13T15:40:00"
+    },
+    {
+        "history_id": "HID2410",
+        "review_text": "Could have been cleaner, but overall fine.",
+        "user_id": "UID93849",
+        "parking_id": "PID11439",
+        "latitude": 48.05999,
+        "longitude": 7.89295,
+        "distance": 26.71,
+        "datetime": "2024-07-25T12:57:00"
+    },
+    {
+        "history_id": "HID8715",
+        "review_text": "Not bad, but the place was a bit small.",
+        "user_id": "UID76255",
+        "parking_id": "PID76805",
+        "latitude": 47.99342,
+        "longitude": 7.86484,
+        "distance": 37.57,
+        "datetime": "2023-01-26T20:44:00"
+    },
+    {
+        "history_id": "HID9314",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID90409",
+        "parking_id": "PID10828",
+        "latitude": 48.03297,
+        "longitude": 7.87561,
+        "distance": 42.14,
+        "datetime": "2024-03-18T00:10:00"
+    },
+    {
+        "history_id": "HID1675",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID14788",
+        "parking_id": "PID13067",
+        "latitude": 47.9944,
+        "longitude": 7.94721,
+        "distance": 20.92,
+        "datetime": "2023-05-19T18:33:00"
+    },
+    {
+        "history_id": "HID8003",
+        "review_text": "Great property, very clean and comfortable.",
+        "user_id": "UID27950",
+        "parking_id": "PID39032",
+        "latitude": 48.00055,
+        "longitude": 7.88713,
+        "distance": 20.05,
+        "datetime": "2023-08-15T10:08:00"
+    },
+    {
+        "history_id": "HID1484",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID16338",
+        "parking_id": "PID34264",
+        "latitude": 48.04788,
+        "longitude": 7.90871,
+        "distance": 49.03,
+        "datetime": "2024-10-30T04:45:00"
+    },
+    {
+        "history_id": "HID7711",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID54903",
+        "parking_id": "PID89516",
+        "latitude": 48.06588,
+        "longitude": 7.94946,
+        "distance": 5.42,
+        "datetime": "2023-04-11T09:18:00"
+    },
+    {
+        "history_id": "HID6359",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID92228",
+        "parking_id": "PID43810",
+        "latitude": 48.05909,
+        "longitude": 7.96647,
+        "distance": 7.91,
+        "datetime": "2023-01-02T09:56:00"
+    },
+    {
+        "history_id": "HID6890",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID29880",
+        "parking_id": "PID88806",
+        "latitude": 48.04686,
+        "longitude": 7.86428,
+        "distance": 3.0,
+        "datetime": "2023-09-24T10:53:00"
+    },
+    {
+        "history_id": "HID3296",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID25015",
+        "parking_id": "PID63018",
+        "latitude": 48.02573,
+        "longitude": 7.95725,
+        "distance": 37.8,
+        "datetime": "2024-10-04T10:34:00"
+    },
+    {
+        "history_id": "HID1864",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID92107",
+        "parking_id": "PID46603",
+        "latitude": 48.02744,
+        "longitude": 7.94787,
+        "distance": 20.59,
+        "datetime": "2023-03-06T20:26:00"
+    },
+    {
+        "history_id": "HID1995",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID85635",
+        "parking_id": "PID91452",
+        "latitude": 48.00997,
+        "longitude": 7.8778,
+        "distance": 15.07,
+        "datetime": "2023-06-04T06:06:00"
+    },
+    {
+        "history_id": "HID4476",
+        "review_text": "Loved it! Spacious and modern.",
+        "user_id": "UID99064",
+        "parking_id": "PID43742",
+        "latitude": 48.03075,
+        "longitude": 7.87151,
+        "distance": 18.09,
+        "datetime": "2024-08-13T18:05:00"
+    },
+    {
+        "history_id": "HID9132",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID74781",
+        "parking_id": "PID49042",
+        "latitude": 48.04452,
+        "longitude": 7.93414,
+        "distance": 4.97,
+        "datetime": "2023-01-25T23:48:00"
+    },
+    {
+        "history_id": "HID1714",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID21632",
+        "parking_id": "PID55428",
+        "latitude": 48.0189,
+        "longitude": 7.9019,
+        "distance": 32.25,
+        "datetime": "2024-02-18T18:26:00"
+    },
+    {
+        "history_id": "HID8079",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID93519",
+        "parking_id": "PID53071",
+        "latitude": 48.04377,
+        "longitude": 7.9016,
+        "distance": 40.39,
+        "datetime": "2024-09-28T17:13:00"
+    },
+    {
+        "history_id": "HID8862",
+        "review_text": "Amazing experience, everything was as expected.",
+        "user_id": "UID65399",
+        "parking_id": "PID58388",
+        "latitude": 47.9925,
+        "longitude": 7.87609,
+        "distance": 28.68,
+        "datetime": "2024-08-19T08:29:00"
+    },
+    {
+        "history_id": "HID6631",
+        "review_text": "The location was perfect but a little noisy.",
+        "user_id": "UID48748",
+        "parking_id": "PID17359",
+        "latitude": 48.03055,
+        "longitude": 7.95143,
+        "distance": 42.27,
+        "datetime": "2023-06-30T15:02:00"
+    },
+    {
+        "history_id": "HID4627",
+        "review_text": "Had a wonderful stay, would definitely come back.",
+        "user_id": "UID99023",
+        "parking_id": "PID90361",
+        "latitude": 48.03007,
+        "longitude": 7.88814,
+        "distance": 34.46,
+        "datetime": "2024-04-03T14:08:00"
+    },
+    {
+        "history_id": "HID4735",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID86749",
+        "parking_id": "PID14207",
+        "latitude": 48.01854,
+        "longitude": 7.89439,
+        "distance": 19.66,
+        "datetime": "2024-02-28T12:05:00"
+    },
+    {
+        "history_id": "HID4182",
+        "review_text": "Perfect for a short stay, highly recommend.",
+        "user_id": "UID22181",
+        "parking_id": "PID90478",
+        "latitude": 47.9977,
+        "longitude": 7.88228,
+        "distance": 14.77,
+        "datetime": "2024-10-18T18:01:00"
+    }
+]

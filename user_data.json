@@ -1,0 +1,902 @@
+[
+    {
+        "user_id": "UID93075",
+        "name": "Max Richter",
+        "username": "mrichter662",
+        "password": "6vctvLlm",
+        "license_plate_number": "FR HM 7801",
+        "credits": 65.66,
+        "history_id": 3625
+    },
+    {
+        "user_id": "UID17019",
+        "name": "Anna Schmidt",
+        "username": "aschmidt727",
+        "password": "mGW9TQtY",
+        "license_plate_number": "FR GE 5963",
+        "credits": 392.72,
+        "history_id": 9936
+    },
+    {
+        "user_id": "UID34152",
+        "name": "Max Fischer",
+        "username": "mfischer853",
+        "password": "7NCZfdiF",
+        "license_plate_number": "FR SE 4472",
+        "credits": 55.67,
+        "history_id": 8246
+    },
+    {
+        "user_id": "UID27184",
+        "name": "Max Wagner",
+        "username": "mwagner903",
+        "password": "JCXaRzvY",
+        "license_plate_number": "FR YU 3803",
+        "credits": 491.49,
+        "history_id": 8456
+    },
+    {
+        "user_id": "UID38993",
+        "name": "Lena Koch",
+        "username": "lkoch448",
+        "password": "ELUxFnun",
+        "license_plate_number": "FR ZR 7884",
+        "credits": 116.4,
+        "history_id": 3216
+    },
+    {
+        "user_id": "UID31817",
+        "name": "Lena Bauer",
+        "username": "lbauer159",
+        "password": "dv7OGMsR",
+        "license_plate_number": "FR RS 5474",
+        "credits": 474.52,
+        "history_id": 5584
+    },
+    {
+        "user_id": "UID44924",
+        "name": "Lena M\u00fcller",
+        "username": "lm\u00fcller332",
+        "password": "PL1xp1e1",
+        "license_plate_number": "FR HE 6543",
+        "credits": 302.55,
+        "history_id": 1393
+    },
+    {
+        "user_id": "UID83551",
+        "name": "Paul Schmidt",
+        "username": "pschmidt641",
+        "password": "i0saMe3K",
+        "license_plate_number": "FR DA 6970",
+        "credits": 249.6,
+        "history_id": 2188
+    },
+    {
+        "user_id": "UID28722",
+        "name": "Moritz Fischer",
+        "username": "mfischer258",
+        "password": "BkOWdRHQ",
+        "license_plate_number": "FR QM 6638",
+        "credits": 202.71,
+        "history_id": 3185
+    },
+    {
+        "user_id": "UID50618",
+        "name": "Lukas Schmidt",
+        "username": "lschmidt698",
+        "password": "NHD8gUEo",
+        "license_plate_number": "FR FT 6118",
+        "credits": 183.48,
+        "history_id": 6613
+    },
+    {
+        "user_id": "UID83208",
+        "name": "Mia Richter",
+        "username": "mrichter733",
+        "password": "v3gldksB",
+        "license_plate_number": "FR HL 5197",
+        "credits": 284.7,
+        "history_id": 1222
+    },
+    {
+        "user_id": "UID24054",
+        "name": "Max Koch",
+        "username": "mkoch119",
+        "password": "O7m12QOA",
+        "license_plate_number": "FR WT 8117",
+        "credits": 351.38,
+        "history_id": 2376
+    },
+    {
+        "user_id": "UID37451",
+        "name": "Moritz Richter",
+        "username": "mrichter860",
+        "password": "g8m9fWDj",
+        "license_plate_number": "FR GM 1062",
+        "credits": 212.49,
+        "history_id": 5287
+    },
+    {
+        "user_id": "UID46547",
+        "name": "Sophia Hoffmann",
+        "username": "shoffmann654",
+        "password": "CrPnl7IJ",
+        "license_plate_number": "FR YA 3720",
+        "credits": 38.73,
+        "history_id": 1937
+    },
+    {
+        "user_id": "UID36624",
+        "name": "Lena Fischer",
+        "username": "lfischer114",
+        "password": "boRXnrpn",
+        "license_plate_number": "FR DP 6196",
+        "credits": 91.25,
+        "history_id": 7264
+    },
+    {
+        "user_id": "UID85435",
+        "name": "Emma Hoffmann",
+        "username": "ehoffmann860",
+        "password": "rdpTb40L",
+        "license_plate_number": "FR PZ 4307",
+        "credits": 202.44,
+        "history_id": 8570
+    },
+    {
+        "user_id": "UID95458",
+        "name": "Paul Weber",
+        "username": "pweber357",
+        "password": "CaaVUDnM",
+        "license_plate_number": "FR SW 1147",
+        "credits": 361.68,
+        "history_id": 5669
+    },
+    {
+        "user_id": "UID38775",
+        "name": "Anna Schneider",
+        "username": "aschneider951",
+        "password": "xDnsKOTC",
+        "license_plate_number": "FR RB 7428",
+        "credits": 34.83,
+        "history_id": 4070
+    },
+    {
+        "user_id": "UID75579",
+        "name": "Anna Bauer",
+        "username": "abauer980",
+        "password": "LSUBAqlj",
+        "license_plate_number": "FR LO 9151",
+        "credits": 372.21,
+        "history_id": 2293
+    },
+    {
+        "user_id": "UID71166",
+        "name": "Leon Bauer",
+        "username": "lbauer644",
+        "password": "zJaft2of",
+        "license_plate_number": "FR WA 5334",
+        "credits": 479.16,
+        "history_id": 6468
+    },
+    {
+        "user_id": "UID86183",
+        "name": "Moritz Hoffmann",
+        "username": "mhoffmann275",
+        "password": "djKJQszA",
+        "license_plate_number": "FR DT 3286",
+        "credits": 420.38,
+        "history_id": 2735
+    },
+    {
+        "user_id": "UID56331",
+        "name": "Emma Weber",
+        "username": "eweber722",
+        "password": "tZfdIeVZ",
+        "license_plate_number": "FR VW 4502",
+        "credits": 373.61,
+        "history_id": 5197
+    },
+    {
+        "user_id": "UID43692",
+        "name": "Moritz Koch",
+        "username": "mkoch393",
+        "password": "FIc0X8ED",
+        "license_plate_number": "FR OT 1669",
+        "credits": 434.17,
+        "history_id": 7999
+    },
+    {
+        "user_id": "UID43577",
+        "name": "Moritz Fischer",
+        "username": "mfischer297",
+        "password": "hXdftSjH",
+        "license_plate_number": "FR FI 4467",
+        "credits": 254.1,
+        "history_id": 2628
+    },
+    {
+        "user_id": "UID97592",
+        "name": "Mia Wagner",
+        "username": "mwagner691",
+        "password": "u94y0wpX",
+        "license_plate_number": "FR NV 7864",
+        "credits": 242.16,
+        "history_id": 9867
+    },
+    {
+        "user_id": "UID41969",
+        "name": "Sophia Fischer",
+        "username": "sfischer921",
+        "password": "Rpc8UyqY",
+        "license_plate_number": "FR TC 8551",
+        "credits": 55.81,
+        "history_id": 4187
+    },
+    {
+        "user_id": "UID12353",
+        "name": "Paul Wagner",
+        "username": "pwagner103",
+        "password": "8AdctJ5j",
+        "license_plate_number": "FR CY 6982",
+        "credits": 225.23,
+        "history_id": 7722
+    },
+    {
+        "user_id": "UID29784",
+        "name": "Anna Koch",
+        "username": "akoch901",
+        "password": "UuXsFXyz",
+        "license_plate_number": "FR QI 3508",
+        "credits": 447.44,
+        "history_id": 3680
+    },
+    {
+        "user_id": "UID77541",
+        "name": "Max Schneider",
+        "username": "mschneider712",
+        "password": "wwOVdCUT",
+        "license_plate_number": "FR GX 9492",
+        "credits": 296.65,
+        "history_id": 5659
+    },
+    {
+        "user_id": "UID94185",
+        "name": "Lena Koch",
+        "username": "lkoch977",
+        "password": "UnHl4vcL",
+        "license_plate_number": "FR WB 2709",
+        "credits": 167.32,
+        "history_id": 2206
+    },
+    {
+        "user_id": "UID76454",
+        "name": "Lena Koch",
+        "username": "lkoch580",
+        "password": "MLxQlXZo",
+        "license_plate_number": "FR CF 9907",
+        "credits": 212.96,
+        "history_id": 1259
+    },
+    {
+        "user_id": "UID58482",
+        "name": "Lena Weber",
+        "username": "lweber935",
+        "password": "V7paVrKP",
+        "license_plate_number": "FR YC 6052",
+        "credits": 449.78,
+        "history_id": 6066
+    },
+    {
+        "user_id": "UID91246",
+        "name": "Lukas Richter",
+        "username": "lrichter835",
+        "password": "p16dgmqE",
+        "license_plate_number": "FR PV 8423",
+        "credits": 460.69,
+        "history_id": 8223
+    },
+    {
+        "user_id": "UID58084",
+        "name": "Sophia Schmidt",
+        "username": "sschmidt384",
+        "password": "YGdizBcY",
+        "license_plate_number": "FR CE 3088",
+        "credits": 247.75,
+        "history_id": 2740
+    },
+    {
+        "user_id": "UID83996",
+        "name": "Lena Koch",
+        "username": "lkoch918",
+        "password": "scUWTUbq",
+        "license_plate_number": "FR RO 1112",
+        "credits": 311.66,
+        "history_id": 8689
+    },
+    {
+        "user_id": "UID20905",
+        "name": "Sophia Weber",
+        "username": "sweber177",
+        "password": "oVWWtbAq",
+        "license_plate_number": "FR RL 8530",
+        "credits": 304.26,
+        "history_id": 9728
+    },
+    {
+        "user_id": "UID69688",
+        "name": "Paul Richter",
+        "username": "prichter733",
+        "password": "5Z8y35ET",
+        "license_plate_number": "FR TP 4779",
+        "credits": 191.17,
+        "history_id": 6911
+    },
+    {
+        "user_id": "UID25303",
+        "name": "Sophia Schmidt",
+        "username": "sschmidt721",
+        "password": "n67iXYrF",
+        "license_plate_number": "FR HH 2540",
+        "credits": 270.46,
+        "history_id": 4190
+    },
+    {
+        "user_id": "UID38570",
+        "name": "Emma Bauer",
+        "username": "ebauer683",
+        "password": "TYWLMsgr",
+        "license_plate_number": "FR KZ 5704",
+        "credits": 392.59,
+        "history_id": 4048
+    },
+    {
+        "user_id": "UID22526",
+        "name": "Lena Richter",
+        "username": "lrichter768",
+        "password": "Jd5wIRel",
+        "license_plate_number": "FR WZ 7749",
+        "credits": 291.8,
+        "history_id": 7562
+    },
+    {
+        "user_id": "UID55784",
+        "name": "Lena Bauer",
+        "username": "lbauer885",
+        "password": "uM9vU06n",
+        "license_plate_number": "FR IX 6198",
+        "credits": 46.7,
+        "history_id": 5399
+    },
+    {
+        "user_id": "UID59447",
+        "name": "Moritz Richter",
+        "username": "mrichter220",
+        "password": "BOA5eJfq",
+        "license_plate_number": "FR WI 3254",
+        "credits": 396.06,
+        "history_id": 1578
+    },
+    {
+        "user_id": "UID57718",
+        "name": "Moritz Wagner",
+        "username": "mwagner171",
+        "password": "xEQrW6kr",
+        "license_plate_number": "FR HT 8030",
+        "credits": 98.66,
+        "history_id": 7255
+    },
+    {
+        "user_id": "UID27844",
+        "name": "Sophia Richter",
+        "username": "srichter223",
+        "password": "4KqSxGZx",
+        "license_plate_number": "FR MV 2561",
+        "credits": 50.41,
+        "history_id": 7410
+    },
+    {
+        "user_id": "UID16826",
+        "name": "Moritz M\u00fcller",
+        "username": "mm\u00fcller598",
+        "password": "uVd6a5xW",
+        "license_plate_number": "FR TF 6524",
+        "credits": 131.52,
+        "history_id": 7628
+    },
+    {
+        "user_id": "UID35426",
+        "name": "Lena Bauer",
+        "username": "lbauer463",
+        "password": "gM4GDFN5",
+        "license_plate_number": "FR SO 7401",
+        "credits": 139.32,
+        "history_id": 3251
+    },
+    {
+        "user_id": "UID99172",
+        "name": "Lena Schmidt",
+        "username": "lschmidt444",
+        "password": "CaYk1Twl",
+        "license_plate_number": "FR YV 8300",
+        "credits": 287.41,
+        "history_id": 3682
+    },
+    {
+        "user_id": "UID62677",
+        "name": "Leon Weber",
+        "username": "lweber795",
+        "password": "8ziC0lXx",
+        "license_plate_number": "FR KX 3080",
+        "credits": 135.75,
+        "history_id": 7265
+    },
+    {
+        "user_id": "UID47970",
+        "name": "Sophia Fischer",
+        "username": "sfischer910",
+        "password": "eydZAkbo",
+        "license_plate_number": "FR AY 8775",
+        "credits": 370.41,
+        "history_id": 6995
+    },
+    {
+        "user_id": "UID54291",
+        "name": "Moritz Bauer",
+        "username": "mbauer239",
+        "password": "hqyhxVF8",
+        "license_plate_number": "FR KC 1872",
+        "credits": 313.62,
+        "history_id": 8935
+    },
+    {
+        "user_id": "UID58328",
+        "name": "Mia Bauer",
+        "username": "mbauer682",
+        "password": "EtTsarMN",
+        "license_plate_number": "FR EP 1103",
+        "credits": 309.15,
+        "history_id": 8101
+    },
+    {
+        "user_id": "UID28435",
+        "name": "Paul M\u00fcller",
+        "username": "pm\u00fcller283",
+        "password": "pQjGPHve",
+        "license_plate_number": "FR FV 9348",
+        "credits": 328.97,
+        "history_id": 2415
+    },
+    {
+        "user_id": "UID77226",
+        "name": "Anna Weber",
+        "username": "aweber350",
+        "password": "1AEYoAET",
+        "license_plate_number": "FR RU 4464",
+        "credits": 361.88,
+        "history_id": 9150
+    },
+    {
+        "user_id": "UID63530",
+        "name": "Moritz M\u00fcller",
+        "username": "mm\u00fcller669",
+        "password": "2m6FFroO",
+        "license_plate_number": "FR ES 4288",
+        "credits": 222.74,
+        "history_id": 3117
+    },
+    {
+        "user_id": "UID75887",
+        "name": "Lena Wagner",
+        "username": "lwagner420",
+        "password": "jlzRPtSq",
+        "license_plate_number": "FR DT 9943",
+        "credits": 335.57,
+        "history_id": 3796
+    },
+    {
+        "user_id": "UID50534",
+        "name": "Emma Schmidt",
+        "username": "eschmidt839",
+        "password": "Z6YVV97d",
+        "license_plate_number": "FR UH 7332",
+        "credits": 479.85,
+        "history_id": 8637
+    },
+    {
+        "user_id": "UID87707",
+        "name": "Paul Schneider",
+        "username": "pschneider437",
+        "password": "6xU5tbJg",
+        "license_plate_number": "FR WL 2410",
+        "credits": 96.75,
+        "history_id": 2852
+    },
+    {
+        "user_id": "UID70617",
+        "name": "Emma Koch",
+        "username": "ekoch435",
+        "password": "VMrKSedn",
+        "license_plate_number": "FR OG 6631",
+        "credits": 386.08,
+        "history_id": 5363
+    },
+    {
+        "user_id": "UID99929",
+        "name": "Max Wagner",
+        "username": "mwagner272",
+        "password": "3MNGYY3V",
+        "license_plate_number": "FR FR 1289",
+        "credits": 201.6,
+        "history_id": 3782
+    },
+    {
+        "user_id": "UID66415",
+        "name": "Emma Koch",
+        "username": "ekoch590",
+        "password": "ASPBUNko",
+        "license_plate_number": "FR AF 7857",
+        "credits": 79.14,
+        "history_id": 7608
+    },
+    {
+        "user_id": "UID40681",
+        "name": "Max Bauer",
+        "username": "mbauer496",
+        "password": "RseZDBfQ",
+        "license_plate_number": "FR NZ 4230",
+        "credits": 120.26,
+        "history_id": 6085
+    },
+    {
+        "user_id": "UID40242",
+        "name": "Anna Schneider",
+        "username": "aschneider926",
+        "password": "vq1Iugkx",
+        "license_plate_number": "FR NW 1249",
+        "credits": 467.16,
+        "history_id": 2512
+    },
+    {
+        "user_id": "UID37153",
+        "name": "Max Schneider",
+        "username": "mschneider250",
+        "password": "y4k9HwPj",
+        "license_plate_number": "FR DQ 2875",
+        "credits": 78.6,
+        "history_id": 5572
+    },
+    {
+        "user_id": "UID41253",
+        "name": "Leon Richter",
+        "username": "lrichter760",
+        "password": "m2FABRHh",
+        "license_plate_number": "FR WE 2795",
+        "credits": 164.34,
+        "history_id": 5849
+    },
+    {
+        "user_id": "UID82114",
+        "name": "Sophia Weber",
+        "username": "sweber633",
+        "password": "WJJSGvHG",
+        "license_plate_number": "FR QF 2184",
+        "credits": 36.4,
+        "history_id": 7703
+    },
+    {
+        "user_id": "UID24291",
+        "name": "Mia Bauer",
+        "username": "mbauer809",
+        "password": "rI7r4TBx",
+        "license_plate_number": "FR TM 2450",
+        "credits": 256.59,
+        "history_id": 3846
+    },
+    {
+        "user_id": "UID76076",
+        "name": "Mia M\u00fcller",
+        "username": "mm\u00fcller147",
+        "password": "Ma4lnr6V",
+        "license_plate_number": "FR MW 5794",
+        "credits": 479.88,
+        "history_id": 5213
+    },
+    {
+        "user_id": "UID15672",
+        "name": "Paul Koch",
+        "username": "pkoch792",
+        "password": "AhZTBAb7",
+        "license_plate_number": "FR ZO 3333",
+        "credits": 414.15,
+        "history_id": 2179
+    },
+    {
+        "user_id": "UID87950",
+        "name": "Lena Schmidt",
+        "username": "lschmidt106",
+        "password": "irzud5bl",
+        "license_plate_number": "FR NE 1271",
+        "credits": 388.95,
+        "history_id": 7811
+    },
+    {
+        "user_id": "UID63644",
+        "name": "Anna Schneider",
+        "username": "aschneider193",
+        "password": "i0dgRx3P",
+        "license_plate_number": "FR CD 5271",
+        "credits": 222.49,
+        "history_id": 6963
+    },
+    {
+        "user_id": "UID60686",
+        "name": "Lukas Schmidt",
+        "username": "lschmidt842",
+        "password": "jejyqD65",
+        "license_plate_number": "FR AY 6619",
+        "credits": 305.52,
+        "history_id": 9907
+    },
+    {
+        "user_id": "UID49856",
+        "name": "Paul Schmidt",
+        "username": "pschmidt274",
+        "password": "mI9uPgGC",
+        "license_plate_number": "FR YS 9873",
+        "credits": 381.43,
+        "history_id": 3319
+    },
+    {
+        "user_id": "UID97329",
+        "name": "Lena Schmidt",
+        "username": "lschmidt298",
+        "password": "vOt2TQ3s",
+        "license_plate_number": "FR FY 5481",
+        "credits": 368.2,
+        "history_id": 5448
+    },
+    {
+        "user_id": "UID64479",
+        "name": "Moritz Schneider",
+        "username": "mschneider963",
+        "password": "4a3GThSk",
+        "license_plate_number": "FR NM 8251",
+        "credits": 103.73,
+        "history_id": 6326
+    },
+    {
+        "user_id": "UID62570",
+        "name": "Lena Schmidt",
+        "username": "lschmidt308",
+        "password": "1iHHDYkp",
+        "license_plate_number": "FR ZH 6118",
+        "credits": 454.35,
+        "history_id": 3734
+    },
+    {
+        "user_id": "UID95943",
+        "name": "Moritz Schneider",
+        "username": "mschneider891",
+        "password": "lZXp5CFT",
+        "license_plate_number": "FR DR 2160",
+        "credits": 425.72,
+        "history_id": 8973
+    },
+    {
+        "user_id": "UID51540",
+        "name": "Max Fischer",
+        "username": "mfischer217",
+        "password": "KlRasULx",
+        "license_plate_number": "FR HV 2311",
+        "credits": 462.57,
+        "history_id": 9028
+    },
+    {
+        "user_id": "UID90022",
+        "name": "Mia Weber",
+        "username": "mweber876",
+        "password": "H0zk5sIs",
+        "license_plate_number": "FR IU 9531",
+        "credits": 291.48,
+        "history_id": 5677
+    },
+    {
+        "user_id": "UID10526",
+        "name": "Leon Weber",
+        "username": "lweber386",
+        "password": "HO6H8SKk",
+        "license_plate_number": "FR UU 7633",
+        "credits": 66.94,
+        "history_id": 2715
+    },
+    {
+        "user_id": "UID48925",
+        "name": "Anna Fischer",
+        "username": "afischer482",
+        "password": "eNyhbcGM",
+        "license_plate_number": "FR KN 7617",
+        "credits": 367.06,
+        "history_id": 8640
+    },
+    {
+        "user_id": "UID28219",
+        "name": "Lena Schneider",
+        "username": "lschneider857",
+        "password": "v7CL9IQj",
+        "license_plate_number": "FR PE 5885",
+        "credits": 458.93,
+        "history_id": 4351
+    },
+    {
+        "user_id": "UID13327",
+        "name": "Lena Hoffmann",
+        "username": "lhoffmann405",
+        "password": "gwoAhbe3",
+        "license_plate_number": "FR IO 8199",
+        "credits": 150.08,
+        "history_id": 5496
+    },
+    {
+        "user_id": "UID16403",
+        "name": "Paul Bauer",
+        "username": "pbauer939",
+        "password": "uWJrgKav",
+        "license_plate_number": "FR TT 8052",
+        "credits": 360.1,
+        "history_id": 9853
+    },
+    {
+        "user_id": "UID40704",
+        "name": "Sophia M\u00fcller",
+        "username": "sm\u00fcller438",
+        "password": "aV32YAoz",
+        "license_plate_number": "FR CU 5238",
+        "credits": 61.79,
+        "history_id": 1455
+    },
+    {
+        "user_id": "UID80204",
+        "name": "Leon Bauer",
+        "username": "lbauer583",
+        "password": "446LThnL",
+        "license_plate_number": "FR CT 3336",
+        "credits": 286.71,
+        "history_id": 6834
+    },
+    {
+        "user_id": "UID69385",
+        "name": "Lukas Schmidt",
+        "username": "lschmidt779",
+        "password": "nFg2mUG9",
+        "license_plate_number": "FR WW 3356",
+        "credits": 122.35,
+        "history_id": 1274
+    },
+    {
+        "user_id": "UID38906",
+        "name": "Max Koch",
+        "username": "mkoch751",
+        "password": "no8bNVrr",
+        "license_plate_number": "FR JD 3090",
+        "credits": 118.97,
+        "history_id": 3759
+    },
+    {
+        "user_id": "UID58125",
+        "name": "Max Schmidt",
+        "username": "mschmidt318",
+        "password": "WRu4O109",
+        "license_plate_number": "FR II 1128",
+        "credits": 324.04,
+        "history_id": 6677
+    },
+    {
+        "user_id": "UID57585",
+        "name": "Leon Weber",
+        "username": "lweber177",
+        "password": "yRx3Iw8b",
+        "license_plate_number": "FR HO 2848",
+        "credits": 394.56,
+        "history_id": 5408
+    },
+    {
+        "user_id": "UID75195",
+        "name": "Sophia Schmidt",
+        "username": "sschmidt706",
+        "password": "F36EfX2d",
+        "license_plate_number": "FR HV 3286",
+        "credits": 208.98,
+        "history_id": 8523
+    },
+    {
+        "user_id": "UID49435",
+        "name": "Sophia M\u00fcller",
+        "username": "sm\u00fcller327",
+        "password": "ty2oH58J",
+        "license_plate_number": "FR BZ 2756",
+        "credits": 476.58,
+        "history_id": 6010
+    },
+    {
+        "user_id": "UID62487",
+        "name": "Anna Weber",
+        "username": "aweber787",
+        "password": "mZOS7vaL",
+        "license_plate_number": "FR GK 5549",
+        "credits": 111.92,
+        "history_id": 8162
+    },
+    {
+        "user_id": "UID80043",
+        "name": "Sophia Bauer",
+        "username": "sbauer607",
+        "password": "ftPFqhPP",
+        "license_plate_number": "FR RY 3509",
+        "credits": 118.99,
+        "history_id": 1735
+    },
+    {
+        "user_id": "UID89021",
+        "name": "Sophia Koch",
+        "username": "skoch858",
+        "password": "CWdOkSvC",
+        "license_plate_number": "FR AX 4946",
+        "credits": 491.21,
+        "history_id": 2129
+    },
+    {
+        "user_id": "UID15284",
+        "name": "Leon Fischer",
+        "username": "lfischer488",
+        "password": "xE34JxVY",
+        "license_plate_number": "FR KQ 9938",
+        "credits": 497.46,
+        "history_id": 1496
+    },
+    {
+        "user_id": "UID19679",
+        "name": "Paul Weber",
+        "username": "pweber621",
+        "password": "v6w28wyF",
+        "license_plate_number": "FR BK 5702",
+        "credits": 212.93,
+        "history_id": 5207
+    },
+    {
+        "user_id": "UID16326",
+        "name": "Moritz Koch",
+        "username": "mkoch974",
+        "password": "FAtiZLOa",
+        "license_plate_number": "FR VI 7967",
+        "credits": 397.09,
+        "history_id": 4946
+    },
+    {
+        "user_id": "UID81515",
+        "name": "Paul Koch",
+        "username": "pkoch496",
+        "password": "MFziNJFZ",
+        "license_plate_number": "FR NP 4698",
+        "credits": 397.83,
+        "history_id": 1768
+    },
+    {
+        "user_id": "UID89185",
+        "name": "Mia Fischer",
+        "username": "mfischer513",
+        "password": "fFKdSNcC",
+        "license_plate_number": "FR QE 8838",
+        "credits": 71.49,
+        "history_id": 6967
+    },
+    {
+        "user_id": "UID46981",
+        "name": "Max Hoffmann",
+        "username": "mhoffmann743",
+        "password": "MnjloOIT",
+        "license_plate_number": "FR UB 6316",
+        "credits": 469.1,
+        "history_id": 9827
+    }
+]

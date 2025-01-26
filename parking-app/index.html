@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,8 @@
       <h1>Parkplatz-App</h1>
       <ul>
         <li><a href="search.html">Parkplatz suchen</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#login">Login</a></li>
+        <li><a href="#" id="login-link">Login</a></li>
+        <li><a href="#" id="create-account-link">Konto erstellen</a></li>
       </ul>
     </nav>
   </header>
@@ -50,5 +50,36 @@
   <footer>
     <p>© 2024 Parkplatz-App. Alle Rechte vorbehalten.</p>
   </footer>
+
+  <!-- Modale Fenster für Login und Konto erstellen -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-login">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" required>
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Einloggen</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="create-account-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-create-account">&times;</span>
+      <h2>Konto erstellen</h2>
+      <form>
+        <label for="new-username">Benutzername:</label>
+        <input type="text" id="new-username" required>
+        <label for="new-password">Passwort:</label>
+        <input type="password" id="new-password" required>
+        <button type="submit">Registrieren</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/main.js"></script>
 </body>
 </html>

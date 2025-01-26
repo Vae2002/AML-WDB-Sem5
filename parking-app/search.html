@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,34 @@
   <header>
     <nav>
       <h1>Parkplatz-App</h1>
-      <a href="index.html">Zurück zur Startseite</a>
+      <a href="index.html" class="back-link">Zurück zur Startseite</a>
     </nav>
   </header>
 
   <main>
     <div class="search-container">
+      <div class="filters">
+        <h3>Filter</h3>
+        <form id="filter-form">
+          <label for="location">Standort:</label>
+          <input type="text" id="location" placeholder="Standort eingeben">
+
+          <label for="price">Maximaler Preis (€):</label>
+          <input type="number" id="price" placeholder="50">
+
+          <label for="distance">Maximale Entfernung (km):</label>
+          <input type="number" id="distance" placeholder="10">
+
+          <label for="start-date">Startdatum:</label>
+          <input type="date" id="start-date">
+
+          <label for="end-date">Enddatum:</label>
+          <input type="date" id="end-date">
+
+          <button type="submit">Anwenden</button>
+        </form>
+      </div>
+
       <div id="map"></div>
     </div>
   </main>

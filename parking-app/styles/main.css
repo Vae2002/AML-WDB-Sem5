@@ -1,57 +1,380 @@
 /* Allgemeines Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  color: #ffd700;
+}
+
+header .back-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 1px; 
+  border-radius: 5px;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1300px; /* Vergrößert die Breite */
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero input,
+.hero button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.hero button {
+  background-color: #004080;
+  color: white;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background-color: #0066cc;
+}
+
+#features {
+  text-align: center;
+}
+
+#features h3 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.feature {
+  width: 30%;
+}
+
+.feature h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Karte */
+#map {
+  height: 700px; /* Größere Karte */
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Filter */
+.filters {
+  margin-bottom: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 0 0 350px; /* Breitere Filter */
+  box-sizing: border-box;
+}
+
+.filters h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.filters form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.filters input,
+.filters button {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.filters input:focus, .filters button:focus {
+  outline: none;
+  border-color: #004080;
+}
+
+.filters button {
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #0066cc;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0; /* Weniger Abstand zu den Seiten */
+}
+
+/* Modale Fenster Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal button {
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #0066cc;
+}
+
+/* Anpassungen für die Anzeige */
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.filters {
+  flex: 0 0 350px; /* Filter breiter gemacht */
+  box-sizing: border-box;
+}
+
+#map {
+  flex-grow: 1;
+  height: 700px; /* Karte größer */
+  margin-left: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    gap: 2rem; /* Vergrößert den Abstand bei mobilen Geräten */
   }
-  
-  header {
-    background-color: #004080;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+  .filters {
+    width: 100%;
   }
-  
-  header h1 {
+
+  #map {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+
+/* Anpassungen für das Login und Create Account Form */
+.account-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* Fügt Padding hinzu, um den Inhalt vom Rand zu entfernen */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 400px; /* Formularbreite begrenzen */
+  width: 100%; /* Maximiert die Breite */
+}
+
+.account-form h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Größerer Abstand zwischen den Formularelementen */
+  width: 100%; /* Maximiert die Breite */
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem; /* Abstand zwischen Label und Input */
+}
+
+input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Sicherstellen, dass das Input-Feld gleichmäßig ist */
+  box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
+}
+
+input:focus {
+  border-color: #004080;
+  outline: none;
+}
+
+button {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%; /* Maximiert die Breite */
+  box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
+}
+
+button:hover {
+  background-color: #0066cc;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+a {
+  color: #004080;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .account-form {
+    padding: 1rem; /* Weniger Padding auf mobilen Geräten */
+    max-width: 100%; /* Maximiert die Breite auf mobilen Geräten */
+  }
+
+  h2 {
     font-size: 1.5rem;
   }
-  
-  header a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1rem;
+
+  input, button {
+    font-size: 1rem;
   }
-  
-  main {
-    padding: 1rem;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #f1f1f1;
-    font-size: 0.9rem;
-  }
-  
-  /* Karte */
-  #map {
-    height: 600px;
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Marker Popup */
-  .leaflet-popup-content {
-    font-size: 0.9rem;
-  }
-  
-#map {
-    height: 500px;
-    width: 100%;
-    border: 1px solid #ccc;
-  }
-  
+}
+
+

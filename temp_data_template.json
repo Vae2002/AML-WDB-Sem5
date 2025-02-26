@@ -1,0 +1,10 @@
+[
+    {
+        "user_id": "UID42085",
+        "parking_id": "PRI80775",
+        "rating": 4.2,
+        "price": 1.45,
+        "distance": 3.2,
+        "datetime": "2023-08-01T10:00:00"
+    }
+]

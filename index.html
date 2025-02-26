@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Parking Recommendations</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input[type="text"] { width: 300px; padding: 5px; }
+        button { padding: 10px 20px; margin-top: 10px; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Parking Recommendation Interface</h1>
+    <p>Enter User ID (optional). If left blank, the system uses the user_id from the candidate JSON.</p>
+    <input type="text" id="userIdInput" placeholder="Enter User ID (e.g., UID42085)" />
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    
+    <h2>Recommendations:</h2>
+    <div id="results"></div>
+    
+    <script>
+        function getRecommendations() {
+            const userId = document.getElementById('userIdInput').value;
+            let url = '/recommend';
+            if (userId) {
+                url += '?user_id=' + encodeURIComponent(userId);
+            }
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = "";
+                if (data.recommendations && data.recommendations.length > 0) {
+                    data.recommendations.forEach(rec => {
+                        const recItem = document.createElement('div');
+                        recItem.style.border = "1px solid #ccc";
+                        recItem.style.padding = "10px";
+                        recItem.style.marginBottom = "10px";
+                        recItem.innerHTML = `<strong>Parking ID:</strong> ${rec.parking_id}<br>
+                                             <strong>Name:</strong> ${rec.name || "N/A"}<br>
+                                             <strong>Price:</strong> ${rec.price}<br>
+                                             <strong>Rating:</strong> ${rec.rating}<br>
+                                             <strong>Distance:</strong> ${rec.distance}<br>
+                                             <strong>Datetime:</strong> ${rec.datetime}`;
+                        resultsDiv.appendChild(recItem);
+                    });
+                } else {
+                    resultsDiv.innerHTML = "<p>No recommendations found.</p>";
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching recommendations:', error);
+                alert("Error fetching recommendations.");
+            });
+        }
+    </script>
+</body>
+</html>

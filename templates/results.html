@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations for {{ uid }}</title>
+    <style>
+        table, th, td { border: 1px solid #ccc; border-collapse: collapse; padding: 8px; }
+        table { width: 100%; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Recommendations for User {{ uid }}</h1>
+    
+    <h2>Top 15 Private Parking Spaces</h2>
+    {% if top15_private %}
+    <table>
+        <thead>
+            <tr>
+                <th>Private ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Calc Distance (km)</th>
+                <th>Euclidean Diff</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in top15_private %}
+            <tr>
+                <td>{{ rec.private_id }}</td>
+                <td>{{ rec.name }}</td>
+                <td>{{ rec.address }}</td>
+                <td>{{ rec.calc_distance }}</td>
+                <td>{{ rec.euclidean_diff }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No private parking recommendations available.</p>
+    {% endif %}
+    
+    <h2>Top 1 Public Parking Space</h2>
+    {% if top1_public %}
+    <table>
+        <thead>
+            <tr>
+                <th>Public ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Calc Distance (km)</th>
+                <th>Euclidean Diff</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in top1_public %}
+            <tr>
+                <td>{{ rec.public_id if rec.public_id is defined else rec.private_id }}</td>
+                <td>{{ rec.name }}</td>
+                <td>{{ rec.address }}</td>
+                <td>{{ rec.calc_distance }}</td>
+                <td>{{ rec.euclidean_diff }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No public parking recommendations available.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>

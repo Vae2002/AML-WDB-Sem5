@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Parking Recommendation</title>
+</head>
+<body>
+    <h1>Parking Recommendation System</h1>
+    <form action="{{ url_for('recommend') }}" method="get">
+        <label for="uid">Enter User ID:</label>
+        <input type="text" id="uid" name="uid" placeholder="e.g., UID42085" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

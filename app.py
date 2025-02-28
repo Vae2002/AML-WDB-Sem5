@@ -1,133 +1,221 @@
-from flask import Flask, jsonify, request, abort, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for
+import os
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans
+from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
 from datetime import datetime
-import json
-import os
+from sklearn.cluster import KMeans
 
 app = Flask(__name__)
 
-# Global variables for data and model.
+# Global variables to hold data
 user_data = None
 history_data = None
 private_parking_data = None
 public_parking_data = None
-merged_history = None
-temp_data = None  # Candidate parking data loaded from temp_data_template.json
-kmeans_model = None
+merged_history = None   # Merged history for private parking records
+public_history = None   # History for public parking records
 
+# ---------------------------
+# Data Loading
+# ---------------------------
 def load_data():
-    global user_data, history_data, private_parking_data, public_parking_data, merged_history, temp_data
-
-    # Load JSON datasets from the "database_generator" folder.
+    global user_data, history_data, private_parking_data, public_parking_data, merged_history, public_history
+    # Load JSON files from the database_generator folder.
     user_data = pd.read_json(os.path.join('database_generator', 'user_data.json'))
     history_data = pd.read_json(os.path.join('database_generator', 'history_data.json'))
     private_parking_data = pd.read_json(os.path.join('database_generator', 'private_parking.json'))
     public_parking_data = pd.read_json(os.path.join('database_generator', 'public_parking.json'))
     
-    # Merge history data with private parking to get price info.
-    merged_history = pd.merge(
-        history_data,
-        private_parking_data[['private_id', 'price_per_hour']],
-        left_on='parking_id',
-        right_on='private_id',
-        how='left'
-    )
-    merged_history['price'] = merged_history['price_per_hour']
-    # Convert "distance" from a string (e.g., "40.78 KM") to a float.
-    merged_history['distance'] = merged_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
+    # For private history, merge with private_parking_data to obtain price info.
+    merged_history = history_data[history_data['parking_id'].str.startswith("PRI")].copy()
+    if not merged_history.empty:
+        merged_history = pd.merge(
+            merged_history,
+            private_parking_data[['private_id', 'price_per_hour']],
+            left_on='parking_id',
+            right_on='private_id',
+            how='left'
+        )
+        merged_history['price'] = merged_history['price_per_hour']
+        merged_history['distance'] = merged_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
     
-    # Load candidate parking data from temp_data_template.json (located in the same folder as app.py).
+    # For public history, filter records with parking_id starting with "PUB"
+    public_history = history_data[history_data['parking_id'].str.startswith("PUB")].copy()
+    if not public_history.empty:
+        # If "price" isn't available, compute estimated price as money_spent/hours_spent.
+        if 'price' not in public_history.columns:
+            public_history['price'] = public_history['money_spent'] / public_history['hours_spent']
+        public_history['distance'] = public_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
+
+load_data()
+
+# ---------------------------
+# Helper Functions
+# ---------------------------
+def extract_city(address):
+    parts = address.split(',')
+    return parts[-1].strip() if len(parts) > 1 else address.strip()
+
+def get_coordinates(address):
+    geolocator = Nominatim(user_agent="parking_app_ml")
+    test_address = address if "Germany" in address else address + ", Germany"
+    location = geolocator.geocode(test_address)
+    if location:
+        return (location.latitude, location.longitude)
+    # Fallback: try just the city.
+    city = extract_city(address)
+    test_city = city if "Germany" in city else city + ", Germany"
+    location = geolocator.geocode(test_city)
+    if location:
+        return (location.latitude, location.longitude)
+    return (None, None)
+
+def compute_distance(row, user_coords):
     try:
-        temp_data = pd.read_json('temp_data_template.json')
+        candidate_lat = float(row['latitude'])
+        candidate_lon = float(row['longitude'])
     except Exception as e:
-        temp_data = pd.DataFrame()  # Fallback to empty DataFrame if file not found
+        print("Error converting candidate coordinates:", e)
+        return np.nan
+    d = geodesic(user_coords, (candidate_lat, candidate_lon)).kilometers
+    return round(d, 2)
 
-def train_model():
-    global kmeans_model, merged_history
-    # Train KMeans on historical data using features: rating, price, and distance.
-    features = merged_history[['rating', 'price', 'distance']].copy()
-    features['rating'] = pd.to_numeric(features['rating'], errors='coerce')
-    features['price'] = pd.to_numeric(features['price'], errors='coerce')
-    features['distance'] = pd.to_numeric(features['distance'], errors='coerce')
-    features.fillna(features.mean(), inplace=True)
-    
-    kmeans_model = KMeans(n_clusters=3, random_state=42, n_init=10)
-    kmeans_model.fit(features.to_numpy())
-    merged_history['cluster'] = kmeans_model.labels_
-
-def get_user_vector(user_id: str):
+def get_user_vector_for_type(uid, history_df, prefix):
     """
-    Returns the user preference vector [avg_rating, avg_price, avg_distance].
-    If the user has history in merged_history, uses their averages.
-    Otherwise, generates fake values by randomly sampling within thresholds:
-      - Rating: between 1 and 5
-      - Price: between 1.09 and 1.88
-      - Distance: between 36.01 and 114.93
+    Computes the user preference vector [avg_rating, avg_price, avg_distance] for records 
+    of a given type (prefix "PRI" for private, "PUB" for public).
+    Filters history_df for records with parking_id starting with prefix AND matching the uid.
+    If none exist, generates fake values.
     """
-    user_history = merged_history[merged_history['user_id'] == user_id].copy()
-    if not user_history.empty:
-        global_avg_rating = merged_history['rating'].mean()
-        global_avg_price = merged_history['price'].mean()
-        global_avg_distance = merged_history['distance'].mean()
-        user_history['rating'].fillna(global_avg_rating, inplace=True)
-        user_history['price'].fillna(global_avg_price, inplace=True)
-        user_history['distance'].fillna(global_avg_distance, inplace=True)
-        avg_rating = user_history['rating'].mean()
-        avg_price = user_history['price'].mean()
-        avg_distance = user_history['distance'].mean()
+    sub = history_df[(history_df['user_id'] == uid) & (history_df['parking_id'].str.startswith(prefix))]
+    if not sub.empty:
+        avg_rating = sub['rating'].mean()
+        avg_price = sub['price'].mean()
+        # Ensure the distance column is numeric.
+        sub['dist_num'] = sub['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
+        avg_distance = sub['dist_num'].mean()
     else:
+        print(f"No history available for {prefix} for user {uid}. Generating fake data.")
         avg_rating = np.random.uniform(1, 5)
-        avg_price = np.random.uniform(1.09, 1.88)
+        if prefix == "PRI":
+            avg_price = np.random.uniform(1.09, 1.88)
+        else:  # For public, assume a different price range (e.g., 3.0 to 4.0)
+            avg_price = np.random.uniform(3.0, 4.0)
         avg_distance = np.random.uniform(36.01, 114.93)
     return np.array([[avg_rating, avg_price, avg_distance]])
 
-def recommend_parking(user_id: str):
-    global temp_data, kmeans_model
-    user_vector = get_user_vector(user_id)
-    try:
-        user_cluster = kmeans_model.predict(user_vector)[0]
-    except Exception as e:
-        abort(500, description="Error predicting cluster: " + str(e))
-    
-    # Assign clusters to candidate data.
-    candidate_df = temp_data.copy()
-    candidate_features = candidate_df[['rating', 'price', 'distance']]
-    candidate_df['cluster'] = kmeans_model.predict(candidate_features.to_numpy())
-    
-    recommended = candidate_df[candidate_df['cluster'] == user_cluster].copy()
-    if recommended.empty:
-        # Fallback: rank by Euclidean distance.
-        diffs = candidate_df[['rating', 'price', 'distance']] - user_vector
-        dists = np.linalg.norm(diffs.to_numpy(), axis=1)
-        candidate_df['euclidean_distance'] = dists
-        recommended = candidate_df.sort_values('euclidean_distance').head(5)
-    else:
-        recommended = recommended.sort_values('distance').head(5)
-    return recommended
+# ---------------------------
+# KMeans-based Ranking Functions
+# ---------------------------
+def rank_candidates(candidates_df, user_vector):
+    """
+    Given a candidate dataframe with features [rating, price, calc_distance],
+    computes the Euclidean distance (in feature space) between each candidate's vector 
+    and the user's vector, and returns the dataframe sorted by that difference.
+    """
+    # Compute Euclidean difference for each candidate.
+    candidates_df['euclidean_diff'] = candidates_df[['rating', 'price', 'calc_distance']].apply(
+        lambda row: np.linalg.norm(row.to_numpy() - user_vector[0]), axis=1)
+    return candidates_df.sort_values('euclidean_diff').reset_index(drop=True)
 
-# Serve index.html at the root.
+# ---------------------------
+# Routes
+# ---------------------------
 @app.route('/')
 def index():
-    return send_from_directory('.', 'index.html')
+    return render_template('index.html')
 
-# Recommendation endpoint.
 @app.route('/recommend', methods=['GET'])
-def get_recommendations():
-    user_id = request.args.get('user_id')
-    if not user_id:
-        # Default to candidate JSON's user_id if none provided.
-        if temp_data is not None and not temp_data.empty:
-            user_id = temp_data.iloc[0]['user_id']
+def recommend():
+    uid = request.args.get('uid')
+    if not uid:
+        return redirect(url_for('index'))
+    
+    # ---------------------------
+    # Get User Information
+    # ---------------------------
+    user_row = user_data[user_data['user_id'] == uid]
+    if user_row.empty:
+        return f"User {uid} not found.", 404
+    user_address = user_row.iloc[0]['address']
+    user_city = extract_city(user_address)
+    
+    # Determine user coordinates.
+    if 'latitude' in user_row and 'longitude' in user_row:
+        user_lat = user_row.iloc[0].get('latitude', None)
+        user_lon = user_row.iloc[0].get('longitude', None)
+        if pd.notna(user_lat) and pd.notna(user_lon):
+            user_coords = (float(user_lat), float(user_lon))
         else:
-            abort(400, description="No candidate data available and no user_id provided.")
-    rec_df = recommend_parking(user_id)
-    rec_list = rec_df.to_dict(orient='records')
-    return jsonify({"recommendations": rec_list})
+            user_coords = get_coordinates(user_address)
+    else:
+        user_coords = get_coordinates(user_address)
+    if None in user_coords:
+        return "Could not geocode user's address.", 500
+    
+    # ---------------------------
+    # Filter Candidate Parking by City
+    # ---------------------------
+    # Private candidates.
+    private_candidates = private_parking_data[private_parking_data['city'] == user_city].copy()
+    if "rating" not in private_candidates.columns:
+        private_candidates["rating"] = np.random.uniform(1, 5, size=len(private_candidates))
+    private_candidates["price"] = private_candidates["price_per_hour"]
+    private_candidates['calc_distance'] = private_candidates.apply(lambda row: compute_distance(row, user_coords), axis=1)
+    
+    # Public candidates.
+    if 'city' not in public_parking_data.columns:
+        public_parking_data['city'] = public_parking_data['address'].apply(extract_city)
+    public_candidates = public_parking_data[public_parking_data['city'] == user_city].copy()
+    if "rating" not in public_candidates.columns:
+        public_candidates["rating"] = np.random.uniform(1, 5, size=len(public_candidates))
+    public_candidates["price"] = public_candidates["price_per_hour"]
+    public_candidates['calc_distance'] = public_candidates.apply(lambda row: compute_distance(row, user_coords), axis=1)
+    
+    # ---------------------------
+    # KMeans-based Ranking for Private Parking
+    # ---------------------------
+    X_private = private_candidates[['rating', 'price', 'calc_distance']].to_numpy()
+    if len(X_private) == 0:
+        top15_private = pd.DataFrame()
+    else:
+        kmeans_private = KMeans(n_clusters=3, random_state=42, n_init=10)
+        kmeans_private.fit(X_private)
+        private_candidates['cluster'] = kmeans_private.predict(X_private)
+        user_vector_private = get_user_vector_for_type(uid, merged_history, "PRI")
+        user_cluster_private = kmeans_private.predict(user_vector_private)[0]
+        private_in_cluster = private_candidates[private_candidates['cluster'] == user_cluster_private].copy()
+        ranked_private = rank_candidates(private_in_cluster, user_vector_private)
+        top15_private = ranked_private.head(15)
+    
+    # ---------------------------
+    # KMeans-based Ranking for Public Parking
+    # ---------------------------
+    X_public = public_candidates[['rating', 'price', 'calc_distance']].to_numpy()
+    if len(X_public) == 0:
+        top1_public = pd.DataFrame()
+    else:
+        kmeans_public = KMeans(n_clusters=3, random_state=42, n_init=10)
+        kmeans_public.fit(X_public)
+        public_candidates['cluster'] = kmeans_public.predict(X_public)
+        user_vector_public = get_user_vector_for_type(uid, public_history, "PUB")
+        user_cluster_public = kmeans_public.predict(user_vector_public)[0]
+        public_in_cluster = public_candidates[public_candidates['cluster'] == user_cluster_public].copy()
+        ranked_public = rank_candidates(public_in_cluster, user_vector_public)
+        top1_public = ranked_public.head(1)
+    
+    # Optionally, save CSV files.
+    top15_private.to_csv("top15_private_parking.csv", index=False)
+    top1_public.to_csv("top1_public_parking.csv", index=False)
+    
+    return render_template('results.html', uid=uid,
+                           top15_private=top15_private.to_dict(orient='records'),
+                           top1_public=top1_public.to_dict(orient='records'))
 
+# ---------------------------
+# Run the App
+# ---------------------------
 if __name__ == '__main__':
-    load_data()
-    train_model()
     app.run(host="0.0.0.0", port=8000, debug=True)
-

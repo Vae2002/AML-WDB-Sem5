@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from datetime import datetime
 import json
+import os
 
 app = Flask(__name__)
 
@@ -18,11 +19,12 @@ kmeans_model = None
 
 def load_data():
     global user_data, history_data, private_parking_data, public_parking_data, merged_history, temp_data
-    # Load JSON datasets.
-    user_data = pd.read_json('user_data.json')
-    history_data = pd.read_json('history_data.json')
-    private_parking_data = pd.read_json('private_parking.json')
-    public_parking_data = pd.read_json('public_parking.json')
+
+    # Load JSON datasets from the "database_generator" folder.
+    user_data = pd.read_json(os.path.join('database_generator', 'user_data.json'))
+    history_data = pd.read_json(os.path.join('database_generator', 'history_data.json'))
+    private_parking_data = pd.read_json(os.path.join('database_generator', 'private_parking.json'))
+    public_parking_data = pd.read_json(os.path.join('database_generator', 'public_parking.json'))
     
     # Merge history data with private parking to get price info.
     merged_history = pd.merge(
@@ -36,7 +38,7 @@ def load_data():
     # Convert "distance" from a string (e.g., "40.78 KM") to a float.
     merged_history['distance'] = merged_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
     
-    # Load candidate parking data from temp_data_template.json.
+    # Load candidate parking data from temp_data_template.json (located in the same folder as app.py).
     try:
         temp_data = pd.read_json('temp_data_template.json')
     except Exception as e:
@@ -44,7 +46,7 @@ def load_data():
 
 def train_model():
     global kmeans_model, merged_history
-    # Use features: rating, price, and distance.
+    # Train KMeans on historical data using features: rating, price, and distance.
     features = merged_history[['rating', 'price', 'distance']].copy()
     features['rating'] = pd.to_numeric(features['rating'], errors='coerce')
     features['price'] = pd.to_numeric(features['price'], errors='coerce')
@@ -57,9 +59,9 @@ def train_model():
 
 def get_user_vector(user_id: str):
     """
-    Returns the user preference vector as [avg_rating, avg_price, avg_distance].
+    Returns the user preference vector [avg_rating, avg_price, avg_distance].
     If the user has history in merged_history, uses their averages.
-    Otherwise, randomly generates fake values within thresholds:
+    Otherwise, generates fake values by randomly sampling within thresholds:
       - Rating: between 1 and 5
       - Price: between 1.09 and 1.88
       - Distance: between 36.01 and 114.93
@@ -128,3 +130,4 @@ if __name__ == '__main__':
     load_data()
     train_model()
     app.run(host="0.0.0.0", port=8000, debug=True)
+

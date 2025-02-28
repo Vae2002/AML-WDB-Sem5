@@ -1,0 +1,2 @@
+public_id,name,address,latitude,longitude,city,price_per_hour,capacity,available_space,opening_time,closing_time,open_days,calc_distance
+PUB16368,Kurzzeitparkplatz Ulm Hbf,"Friedrich-Ebert-Straße, 89073 Ulm",48.40016,9.98338,Ulm,3.8,25,12,2025-02-28 09:00:00,2025-02-28 23:00:00,"['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']",4.723084959830145

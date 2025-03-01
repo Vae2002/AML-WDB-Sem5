@@ -27,7 +27,7 @@ def load_data():
     private_parking_data = pd.read_json(os.path.join('database_generator', 'private_parking.json'))
     public_parking_data = pd.read_json(os.path.join('database_generator', 'public_parking.json'))
     
-    # Merge history for private parking to get price info
+    # For private history, merge with private_parking_data to obtain price info.
     merged_history = history_data[history_data['parking_id'].str.startswith("PRI")].copy()
     if not merged_history.empty:
         merged_history = pd.merge(
@@ -40,10 +40,9 @@ def load_data():
         merged_history['price'] = merged_history['price_per_hour']
         merged_history['distance'] = merged_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
     
-    # For public history
+    # For public history, filter records with parking_id starting with "PUB"
     public_history = history_data[history_data['parking_id'].str.startswith("PUB")].copy()
     if not public_history.empty:
-        # If price is not available, we could compute it as money_spent/hours_spent
         if 'price' not in public_history.columns:
             public_history['price'] = public_history['money_spent'] / public_history['hours_spent']
         public_history['distance'] = public_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
@@ -63,7 +62,6 @@ def get_coordinates(address):
     location = geolocator.geocode(test_address)
     if location:
         return (location.latitude, location.longitude)
-    # Fallback: try just the city.
     city = extract_city(address)
     test_city = city if "Germany" in city else city + ", Germany"
     location = geolocator.geocode(test_city)
@@ -122,8 +120,14 @@ def index():
 @app.route('/recommend', methods=['GET'])
 def recommend():
     uid = request.args.get('uid')
-    # Optional address override field.
+    # Optional fields: address override, maximum price, and maximum distance.
     address_override = request.args.get('address_override')
+    max_price_str = request.args.get('max_price')
+    max_distance_str = request.args.get('max_distance')
+    
+    max_price = float(max_price_str) if max_price_str and max_price_str.strip() != "" else None
+    max_distance = float(max_distance_str) if max_distance_str and max_distance_str.strip() != "" else None
+
     if not uid:
         return redirect(url_for('index'))
     
@@ -134,7 +138,7 @@ def recommend():
     if user_row.empty:
         return f"User {uid} not found.", 404
     user_address = user_row.iloc[0]['address']
-    # If an address override is provided, use that.
+    # If address override is provided, use that.
     if address_override and address_override.strip() != "":
         user_address = address_override.strip()
     user_city = extract_city(user_address)
@@ -162,6 +166,12 @@ def recommend():
     private_candidates["price"] = private_candidates["price_per_hour"]
     private_candidates['calc_distance'] = private_candidates.apply(lambda row: compute_distance(row, user_coords), axis=1)
     
+    # Filter by maximum price and distance if provided.
+    if max_price is not None:
+        private_candidates = private_candidates[private_candidates["price"] <= max_price]
+    if max_distance is not None:
+        private_candidates = private_candidates[private_candidates["calc_distance"] <= max_distance]
+    
     # Public candidates.
     if 'city' not in public_parking_data.columns:
         public_parking_data['city'] = public_parking_data['address'].apply(extract_city)
@@ -170,6 +180,10 @@ def recommend():
         public_candidates["rating"] = np.random.uniform(1, 5, size=len(public_candidates))
     public_candidates["price"] = public_candidates["price_per_hour"]
     public_candidates['calc_distance'] = public_candidates.apply(lambda row: compute_distance(row, user_coords), axis=1)
+    if max_price is not None:
+        public_candidates = public_candidates[public_candidates["price"] <= max_price]
+    if max_distance is not None:
+        public_candidates = public_candidates[public_candidates["calc_distance"] <= max_distance]
     
     # ---------------------------
     # KMeans-based Ranking for Private Parking
@@ -203,14 +217,16 @@ def recommend():
         ranked_public = rank_candidates(public_in_cluster, user_vector_public)
         top1_public = ranked_public.head(1)
     
-    # Optionally, save results to CSV files.
+    # Optionally, save results as CSV.
     top15_private.to_csv("top15_private_parking.csv", index=False)
     top1_public.to_csv("top1_public_parking.csv", index=False)
     
     return render_template('results.html', uid=uid,
                            top15_private=top15_private.to_dict(orient='records'),
                            top1_public=top1_public.to_dict(orient='records'),
-                           override_address=user_address)
+                           override_address=user_address,
+                           max_price=max_price,
+                           max_distance=max_distance)
 
 # ---------------------------
 # Run the App

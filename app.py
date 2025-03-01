@@ -14,21 +14,20 @@ user_data = None
 history_data = None
 private_parking_data = None
 public_parking_data = None
-merged_history = None   # Merged history for private parking records
-public_history = None   # History for public parking records
+merged_history = None   # For private history
+public_history = None   # For public history
 
 # ---------------------------
 # Data Loading
 # ---------------------------
 def load_data():
     global user_data, history_data, private_parking_data, public_parking_data, merged_history, public_history
-    # Load JSON files from the database_generator folder.
     user_data = pd.read_json(os.path.join('database_generator', 'user_data.json'))
     history_data = pd.read_json(os.path.join('database_generator', 'history_data.json'))
     private_parking_data = pd.read_json(os.path.join('database_generator', 'private_parking.json'))
     public_parking_data = pd.read_json(os.path.join('database_generator', 'public_parking.json'))
     
-    # For private history, merge with private_parking_data to obtain price info.
+    # Merge history for private parking to get price info
     merged_history = history_data[history_data['parking_id'].str.startswith("PRI")].copy()
     if not merged_history.empty:
         merged_history = pd.merge(
@@ -41,10 +40,10 @@ def load_data():
         merged_history['price'] = merged_history['price_per_hour']
         merged_history['distance'] = merged_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
     
-    # For public history, filter records with parking_id starting with "PUB"
+    # For public history
     public_history = history_data[history_data['parking_id'].str.startswith("PUB")].copy()
     if not public_history.empty:
-        # If "price" isn't available, compute estimated price as money_spent/hours_spent.
+        # If price is not available, we could compute it as money_spent/hours_spent
         if 'price' not in public_history.columns:
             public_history['price'] = public_history['money_spent'] / public_history['hours_spent']
         public_history['distance'] = public_history['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
@@ -85,15 +84,13 @@ def compute_distance(row, user_coords):
 def get_user_vector_for_type(uid, history_df, prefix):
     """
     Computes the user preference vector [avg_rating, avg_price, avg_distance] for records 
-    of a given type (prefix "PRI" for private, "PUB" for public).
-    Filters history_df for records with parking_id starting with prefix AND matching the uid.
+    with parking_id starting with prefix ("PRI" for private, "PUB" for public) for the given uid.
     If none exist, generates fake values.
     """
     sub = history_df[(history_df['user_id'] == uid) & (history_df['parking_id'].str.startswith(prefix))]
     if not sub.empty:
         avg_rating = sub['rating'].mean()
         avg_price = sub['price'].mean()
-        # Ensure the distance column is numeric.
         sub['dist_num'] = sub['distance'].astype(str).str.extract(r'([\d\.]+)')[0].astype(float)
         avg_distance = sub['dist_num'].mean()
     else:
@@ -101,21 +98,16 @@ def get_user_vector_for_type(uid, history_df, prefix):
         avg_rating = np.random.uniform(1, 5)
         if prefix == "PRI":
             avg_price = np.random.uniform(1.09, 1.88)
-        else:  # For public, assume a different price range (e.g., 3.0 to 4.0)
+        else:
             avg_price = np.random.uniform(3.0, 4.0)
         avg_distance = np.random.uniform(36.01, 114.93)
     return np.array([[avg_rating, avg_price, avg_distance]])
 
-# ---------------------------
-# KMeans-based Ranking Functions
-# ---------------------------
 def rank_candidates(candidates_df, user_vector):
     """
-    Given a candidate dataframe with features [rating, price, calc_distance],
-    computes the Euclidean distance (in feature space) between each candidate's vector 
-    and the user's vector, and returns the dataframe sorted by that difference.
+    Computes Euclidean distance in feature space ([rating, price, calc_distance]) 
+    between each candidate and the user_vector, then sorts candidates by that difference.
     """
-    # Compute Euclidean difference for each candidate.
     candidates_df['euclidean_diff'] = candidates_df[['rating', 'price', 'calc_distance']].apply(
         lambda row: np.linalg.norm(row.to_numpy() - user_vector[0]), axis=1)
     return candidates_df.sort_values('euclidean_diff').reset_index(drop=True)
@@ -130,16 +122,21 @@ def index():
 @app.route('/recommend', methods=['GET'])
 def recommend():
     uid = request.args.get('uid')
+    # Optional address override field.
+    address_override = request.args.get('address_override')
     if not uid:
         return redirect(url_for('index'))
     
     # ---------------------------
-    # Get User Information
+    # Get User Info
     # ---------------------------
     user_row = user_data[user_data['user_id'] == uid]
     if user_row.empty:
         return f"User {uid} not found.", 404
     user_address = user_row.iloc[0]['address']
+    # If an address override is provided, use that.
+    if address_override and address_override.strip() != "":
+        user_address = address_override.strip()
     user_city = extract_city(user_address)
     
     # Determine user coordinates.
@@ -184,7 +181,7 @@ def recommend():
         kmeans_private = KMeans(n_clusters=3, random_state=42, n_init=10)
         kmeans_private.fit(X_private)
         private_candidates['cluster'] = kmeans_private.predict(X_private)
-        user_vector_private = get_user_vector_for_type(uid, merged_history, "PRI")
+        user_vector_private = get_user_vector_for_type(uid, history_data, "PRI")
         user_cluster_private = kmeans_private.predict(user_vector_private)[0]
         private_in_cluster = private_candidates[private_candidates['cluster'] == user_cluster_private].copy()
         ranked_private = rank_candidates(private_in_cluster, user_vector_private)
@@ -200,19 +197,20 @@ def recommend():
         kmeans_public = KMeans(n_clusters=3, random_state=42, n_init=10)
         kmeans_public.fit(X_public)
         public_candidates['cluster'] = kmeans_public.predict(X_public)
-        user_vector_public = get_user_vector_for_type(uid, public_history, "PUB")
+        user_vector_public = get_user_vector_for_type(uid, history_data, "PUB")
         user_cluster_public = kmeans_public.predict(user_vector_public)[0]
         public_in_cluster = public_candidates[public_candidates['cluster'] == user_cluster_public].copy()
         ranked_public = rank_candidates(public_in_cluster, user_vector_public)
         top1_public = ranked_public.head(1)
     
-    # Optionally, save CSV files.
+    # Optionally, save results to CSV files.
     top15_private.to_csv("top15_private_parking.csv", index=False)
     top1_public.to_csv("top1_public_parking.csv", index=False)
     
     return render_template('results.html', uid=uid,
                            top15_private=top15_private.to_dict(orient='records'),
-                           top1_public=top1_public.to_dict(orient='records'))
+                           top1_public=top1_public.to_dict(orient='records'),
+                           override_address=user_address)
 
 # ---------------------------
 # Run the App

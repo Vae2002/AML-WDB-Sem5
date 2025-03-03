@@ -1,144 +1,102 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialisierung der Karte und Parkplatzfilter
-  const map = L.map("map").setView([48.00649, 7.90586], 13); // Freiburg
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>",
-  }).addTo(map);
+    const privateParkingPath = "../../database_generator/private_parking.json";
+    const publicParkingPath = "../../database_generator/public_parking.json";
 
-  const dataPath = "data/private_parking_freiburg.json"; // JSON Pfad
-  let allParkingData = []; // Speichert alle Parkplatzdaten
-  let filteredData = []; // Speichert gefilterte Daten
+    function initMap() {
+        const map = L.map("map").setView([51.1657, 10.4515], 6); // Deutschland-Zentrum
 
-  // Filter Eingabefelder
-  const locationInput = document.getElementById("location");
-  const priceInput = document.getElementById("price");
-  const distanceInput = document.getElementById("distance");
-  const startDateInput = document.getElementById("start-date");
-  const endDateInput = document.getElementById("end-date");
-  const filterForm = document.getElementById("filter-form");
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
 
-  // Lade Parkplatzdaten
-  fetch(dataPath)
-    .then((response) => response.json())
-    .then((data) => {
-      allParkingData = data;
-      filteredData = data;
-      renderMarkers(filteredData);
-    })
-    .catch((error) => console.error("Fehler beim Laden der JSON-Daten:", error));
+        loadParkingData(map);
+    }
 
-  // Funktion zum Rendern der Marker auf der Karte
-  function renderMarkers(data) {
-    map.eachLayer((layer) => {
-      if (layer instanceof L.Marker) map.removeLayer(layer);
-    });
+    async function loadParkingData(map) {
+        try {
+            const privateResponse = await fetch(privateParkingPath);
+            const publicResponse = await fetch(publicParkingPath);
 
-    data.forEach((parking) => {
-      const marker = L.marker([parking.latitude, parking.longitude]).addTo(map);
-      marker.bindPopup(
-        `<b>${parking.name}</b><br>
-        Adresse: ${parking.address}<br>
-        Preis: ${parking.price} €/Tag<br>
-        Verfügbarkeit: ${parking.available_space} Plätze<br>
-        Öffnungszeiten: ${parking.opening_time}<br>
-        Besonderheiten: ${parking.special_access}`
-      );
-    });
-  }
+            if (!privateResponse.ok || !publicResponse.ok) {
+                throw new Error("Fehler beim Laden der JSON-Dateien");
+            }
 
-  // Filter anwenden
-  filterForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const maxPrice = parseFloat(priceInput.value) || Infinity;
-    const maxDistance = parseFloat(distanceInput.value) || Infinity;
-    const searchLocation = locationInput.value.toLowerCase();
-    const startDate = startDateInput.value ? new Date(startDateInput.value) : null;
-    const endDate = endDateInput.value ? new Date(endDateInput.value) : null;
+            let privateParking = await privateResponse.json();
+            let publicParking = await publicResponse.json();
 
-    filteredData = allParkingData.filter((parking) => {
-      const priceMatches = parking.price <= maxPrice;
-      const locationMatches = parking.address.toLowerCase().includes(searchLocation);
+            // Zeige nur die Top 10 Einträge aus beiden Listen an
+            privateParking = privateParking.slice(0, 10);
+            publicParking = publicParking.slice(0, 10);
 
-      let dateMatches = true;
-      if (startDate && endDate) {
-        const { startDate: parkingStartDate, endDate: parkingEndDate } = parseDateRange(parking.opening_time);
-        if (startDate > parkingEndDate || endDate < parkingStartDate) {
-          dateMatches = false;
+            addParkingMarkers(map, privateParking, "red", "Privater Parkplatz");
+            addParkingMarkers(map, publicParking, "blue", "Öffentlicher Parkplatz");
+
+            // Falls alle Parkplätze angezeigt werden sollen, entferne die Kommentare:
+            // addParkingMarkers(map, privateParking, "red", "Privater Parkplatz");
+            // addParkingMarkers(map, publicParking, "blue", "Öffentlicher Parkplatz");
+
+        } catch (error) {
+            console.error("Fehler beim Laden der Parkdaten:", error);
         }
-      }
-
-      return priceMatches && locationMatches && dateMatches;
-    });
-
-    renderMarkers(filteredData);
-  });
-
-  // Konto erstellen
-  const createAccountForm = document.getElementById("create-account-form");
-  createAccountForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email-create").value;
-    const password = document.getElementById("password-create").value;
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.find((user) => user.email === email)) {
-      alert("Diese E-Mail-Adresse ist bereits registriert.");
-      return;
     }
 
-    users.push({ email, password });
-    localStorage.setItem("users", JSON.stringify(users));
-    alert("Konto erfolgreich erstellt.");
-  });
+    function addParkingMarkers(map, data, color, type) {
+        data.forEach(parking => {
+            const {
+                latitude, 
+                longitude, 
+                name, 
+                address, 
+                city, 
+                price_per_hour, 
+                capacity, 
+                available_space, 
+                opening_time, 
+                closing_time, 
+                open_days, 
+                special_access, 
+                note_area, 
+                key_access_info
+            } = parking;
 
-  // Login
-  const loginForm = document.getElementById("login-form");
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email-login").value;
-    const password = document.getElementById("password-login").value;
+            // Erstelle die Popup-Nachricht mit allen relevanten Informationen
+            let popupContent = `
+                <b>${name}</b><br>
+                <b>Typ:</b> ${type}<br>
+                <b>Adresse:</b> ${address}, ${city}<br>
+                <b>Preis/h:</b> ${price_per_hour ? price_per_hour + " €" : "Kostenlos"}<br>
+                <b>Kapazität:</b> ${capacity}<br>
+                <b>Freie Plätze:</b> ${available_space}<br>
+                <b>Öffnungszeiten:</b> ${opening_time} - ${closing_time}<br>
+                <b>Geöffnet an:</b> ${open_days ? open_days.join(", ") : "Jeden Tag"}<br>
+            `;
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find((user) => user.email === email && user.password === password);
+            // Falls spezielle Zugangsinfos vorhanden sind, hinzufügen
+            if (special_access) {
+                popupContent += `<b>Besonderer Zugang:</b> ${special_access}<br>`;
+            }
+            if (note_area) {
+                popupContent += `<b>Hinweis:</b> ${note_area}<br>`;
+            }
+            if (key_access_info) {
+                popupContent += `<b>Schlüssel-Info:</b> ${key_access_info}<br>`;
+            }
 
-    if (user) {
-      alert("Erfolgreich eingeloggt.");
-    } else {
-      alert("Ungültige E-Mail oder Passwort.");
+            L.marker([latitude, longitude], { icon: createIcon(color) })
+                .addTo(map)
+                .bindPopup(popupContent);
+        });
     }
-  });
+
+    function createIcon(color) {
+        return L.icon({
+            iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+    }
+
+    initMap();
 });
-
-// Öffnen und Schließen der Modal-Fenster für Login und Konto erstellen
-const loginLink = document.getElementById('login-link');
-const createAccountLink = document.getElementById('create-account-link');
-const loginModal = document.getElementById('login-modal');
-const createAccountModal = document.getElementById('create-account-modal');
-const closeLogin = document.getElementById('close-login');
-const closeCreateAccount = document.getElementById('close-create-account');
-
-loginLink.onclick = () => {
-  loginModal.style.display = "block";
-};
-
-createAccountLink.onclick = () => {
-  createAccountModal.style.display = "block";
-};
-
-closeLogin.onclick = () => {
-  loginModal.style.display = "none";
-};
-
-closeCreateAccount.onclick = () => {
-  createAccountModal.style.display = "none";
-};
-
-// Schließen der Modal-Fenster, wenn der Benutzer außerhalb klickt
-window.onclick = function(event) {
-  if (event.target === loginModal) {
-    loginModal.style.display = "none";
-  }
-  if (event.target === createAccountModal) {
-    createAccountModal.style.display = "none";
-  }
-};

@@ -8,16 +8,19 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-<body>
+<body class="search-page"> <!-- Klasse search-page hinzugefügt -->
   <header>
     <nav>
-      <h1>Parkplatz-App</h1>
+      <div class="logo">
+        <img src="assets/parking.jpg" alt="Parkplatz-App Logo">
+      </div>
       <a href="index.html" class="back-link">Zurück zur Startseite</a>
     </nav>
   </header>
 
   <main>
     <div class="search-container">
+      <!-- Filterbereich über der Karte -->
       <div class="filters">
         <h3>Filter</h3>
         <form id="filter-form">
@@ -33,13 +36,11 @@
           <label for="start-date">Startdatum:</label>
           <input type="date" id="start-date">
 
-          <label for="end-date">Enddatum:</label>
-          <input type="date" id="end-date">
-
           <button type="submit">Anwenden</button>
         </form>
       </div>
 
+      <!-- Karte -->
       <div id="map"></div>
     </div>
   </main>

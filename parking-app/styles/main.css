@@ -10,10 +10,18 @@ body {
 header {
   background-color: #004080;
   color: white;
-  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+  border-radius: 8px;
+  margin-right: auto;
 }
 
 header h1 {
@@ -25,7 +33,7 @@ header nav ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  gap: 1rem;
+  gap: 20px;
 }
 
 header nav ul li {
@@ -55,6 +63,23 @@ main {
   max-width: 1300px; /* Vergrößert die Breite */
   margin: 0 auto;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
 
 /* Hero Section */
 .hero {
@@ -124,68 +149,74 @@ footer {
   color: #555;
 }
 
+
+/*----------------------------------*/
 /* Karte */
 #map {
-  height: 700px; /* Größere Karte */
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  height: 90vh; /* Karte nimmt die ganze Höhe des Viewports ein */
+  width: 100%;   /* Karte nimmt die ganze Breite ein */
+  position: absolute; /* Karte auf der gesamten Seite positionieren */
+  top: 70px;
+  left: 0;
+  z-index: 0; /* Karte im Hintergrund */
+  border: none; /* Keine Ränder */
 }
 
-/* Filter */
-.filters {
-  margin-bottom: 2rem;
-  background-color: #fff;
-  padding: 2rem;
+/* Filter speziell für search.html */
+body.search-page .filters {
+  position: absolute;
+  top: 100px; /* Abstand von oben */
+  right: 20px; /* Abstand von links */
+  background-color: rgba(255, 255, 255, 0.8); /* Leicht transparente Hintergrundfarbe */
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  flex: 0 0 350px; /* Breitere Filter */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Filterbereich über der Karte */
+  max-width: 350px; /* Maximalbreite */
+  width: 100%;
   box-sizing: border-box;
 }
 
-.filters h3 {
+/* Titel im Filter */
+body.search-page .filters h3 {
   margin-top: 0;
   font-size: 1.4rem;
 }
 
-.filters form {
+/* Formularelemente im Filter */
+body.search-page .filters form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.filters input,
-.filters button {
+body.search-page .filters input,
+body.search-page .filters button {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-.filters input:focus, .filters button:focus {
+body.search-page .filters input:focus,
+body.search-page .filters button:focus {
   outline: none;
   border-color: #004080;
 }
 
-.filters button {
+body.search-page .filters button {
   background-color: #004080;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-.filters button:hover {
+body.search-page .filters button:hover {
   background-color: #0066cc;
 }
 
-.search-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0; /* Weniger Abstand zu den Seiten */
-}
+
+/*------------------------------------------------------------*/
 
 /* Modale Fenster Styling */
 .modal {
@@ -252,31 +283,6 @@ footer {
   box-sizing: border-box;
 }
 
-#map {
-  flex-grow: 1;
-  height: 700px; /* Karte größer */
-  margin-left: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .search-container {
-    flex-direction: column;
-    gap: 2rem; /* Vergrößert den Abstand bei mobilen Geräten */
-  }
-
-  .filters {
-    width: 100%;
-  }
-
-  #map {
-    width: 100%;
-    height: 400px;
-  }
-}
-
 
 /* Anpassungen für das Login und Create Account Form */
 .account-form {
@@ -302,14 +308,14 @@ footer {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Größerer Abstand zwischen den Formularelementen */
+  gap: 15px; /* Größerer Abstand zwischen den Formularelementen */
   width: 100%; /* Maximiert die Breite */
 }
 
 label {
   font-size: 1rem;
   color: #333;
-  margin-bottom: 0.5rem; /* Abstand zwischen Label und Input */
+  margin-bottom: 0px; /* Abstand zwischen Label und Input */
 }
 
 input {

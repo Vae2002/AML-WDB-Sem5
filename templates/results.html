@@ -11,6 +11,12 @@
 <body>
     <h1>Recommendations for User {{ uid }}</h1>
     <p><strong>Used Address:</strong> {{ override_address }}</p>
+    {% if max_price %}
+      <p><strong>Max Price:</strong> {{ max_price }}</p>
+    {% endif %}
+    {% if max_distance %}
+      <p><strong>Max Distance:</strong> {{ max_distance }} km</p>
+    {% endif %}
     
     <h2>Top 15 Private Parking Spaces</h2>
     {% if top15_private %}
@@ -20,6 +26,7 @@
                 <th>Private ID</th>
                 <th>Name</th>
                 <th>Address</th>
+                <th>Price</th>
                 <th>Calc Distance (km)</th>
                 <th>Euclidean Diff</th>
             </tr>
@@ -30,6 +37,7 @@
                 <td>{{ rec.private_id }}</td>
                 <td>{{ rec.name }}</td>
                 <td>{{ rec.address }}</td>
+                <td>{{ rec.price }}</td>
                 <td>{{ rec.calc_distance }}</td>
                 <td>{{ rec.euclidean_diff }}</td>
             </tr>
@@ -48,6 +56,7 @@
                 <th>Public ID</th>
                 <th>Name</th>
                 <th>Address</th>
+                <th>Price</th>
                 <th>Calc Distance (km)</th>
                 <th>Euclidean Diff</th>
             </tr>
@@ -58,6 +67,7 @@
                 <td>{{ rec.public_id if rec.public_id is defined else rec.private_id }}</td>
                 <td>{{ rec.name }}</td>
                 <td>{{ rec.address }}</td>
+                <td>{{ rec.price }}</td>
                 <td>{{ rec.calc_distance }}</td>
                 <td>{{ rec.euclidean_diff }}</td>
             </tr>

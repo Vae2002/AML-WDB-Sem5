@@ -1,2 +1,1 @@
-public_id,name,address,city,latitude,longitude,price_per_hour,capacity,available_space,opening_time,closing_time,open_days,rating,price,calc_distance,cluster,euclidean_diff
-PUB86182,Parkierungsareal P23,"Albert-Einstein-Allee 8/2, 89081 Ulm",Ulm,48.42584,9.954895,1.6,413,206,2025-03-01,2025-03-01 22:00:00,"['Saturday', 'Sunday']",4.245822263477196,1.6,4.06,1,80.33892060382063
+

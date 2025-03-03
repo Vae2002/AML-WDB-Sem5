@@ -17,6 +17,9 @@
     {% if max_distance %}
       <p><strong>Max Distance:</strong> {{ max_distance }} km</p>
     {% endif %}
+    {% if selected_days %}
+      <p><strong>Selected Days:</strong> {{ selected_days | join(', ') }}</p>
+    {% endif %}
     
     <h2>Top 15 Private Parking Spaces</h2>
     {% if top15_private %}
@@ -29,6 +32,9 @@
                 <th>Price</th>
                 <th>Calc Distance (km)</th>
                 <th>Euclidean Diff</th>
+                <th>Opening Time</th>
+                <th>Closing Time</th>
+                <th>Open Days</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +46,9 @@
                 <td>{{ rec.price }}</td>
                 <td>{{ rec.calc_distance }}</td>
                 <td>{{ rec.euclidean_diff }}</td>
+                <td>{{ rec.opening_time }}</td>
+                <td>{{ rec.closing_time }}</td>
+                <td>{{ rec.open_days | join(', ') }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -59,6 +68,9 @@
                 <th>Price</th>
                 <th>Calc Distance (km)</th>
                 <th>Euclidean Diff</th>
+                <th>Opening Time</th>
+                <th>Closing Time</th>
+                <th>Open Days</th>
             </tr>
         </thead>
         <tbody>
@@ -70,6 +82,9 @@
                 <td>{{ rec.price }}</td>
                 <td>{{ rec.calc_distance }}</td>
                 <td>{{ rec.euclidean_diff }}</td>
+                <td>{{ rec.opening_time }}</td>
+                <td>{{ rec.closing_time }}</td>
+                <td>{{ rec.open_days | join(', ') }}</td>
             </tr>
             {% endfor %}
         </tbody>

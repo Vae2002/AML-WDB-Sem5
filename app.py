@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
-from datetime import datetime
 from sklearn.cluster import KMeans
 from geopy.exc import GeocoderUnavailable
 
@@ -119,6 +118,11 @@ def rank_candidates(candidates_df, user_vector):
         lambda row: np.linalg.norm(row.to_numpy() - user_vector[0]), axis=1)
     return candidates_df.sort_values('euclidean_diff').reset_index(drop=True)
 
+def is_parking_available(parking, selected_days):
+    if not selected_days:
+        return True
+    return any(day in parking.get('open_days', []) for day in selected_days)
+
 # ---------------------------
 # Routes
 # ---------------------------
@@ -132,6 +136,7 @@ def recommend():
     address_override = request.args.get('address_override')
     max_price_str = request.args.get('max_price')
     max_distance_str = request.args.get('max_distance')
+    selected_days = request.args.getlist('day_of_week[]')
     
     max_price = float(max_price_str) if max_price_str and max_price_str.strip() != "" else None
     max_distance = float(max_distance_str) if max_distance_str and max_distance_str.strip() != "" else None
@@ -203,6 +208,11 @@ def recommend():
     if max_distance is not None:
         public_candidates = public_candidates[public_candidates["calc_distance"] <= max_distance]
     
+    # Filter by selected days of the week
+    if selected_days:
+        private_candidates = private_candidates[private_candidates.apply(lambda x: is_parking_available(x, selected_days), axis=1)]
+        public_candidates = public_candidates[public_candidates.apply(lambda x: is_parking_available(x, selected_days), axis=1)]
+    
     # KMeans-based Ranking for Private Parking
     X_private = private_candidates[['rating', 'price', 'calc_distance']].to_numpy()
     if len(X_private) == 0:
@@ -236,7 +246,8 @@ def recommend():
                            top1_public=top1_public.to_dict(orient='records'),
                            override_address=user_address,
                            max_price=max_price,
-                           max_distance=max_distance)
+                           max_distance=max_distance,
+                           selected_days=selected_days)
 
 # ---------------------------
 # Run the App

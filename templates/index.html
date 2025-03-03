@@ -3,6 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Parking Recommendation</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+        
+        .dropdown-btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-content label {
+            display: block;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-content label:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-content input {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Parking Recommendation System</h1>
@@ -19,7 +60,37 @@
         <label for="max_distance">Optional: Maximum Distance (km):</label>
         <input type="text" id="max_distance" name="max_distance" placeholder="e.g., 10"><br><br>
         
+        <label>Optional: Days of Week:</label><br>
+        <div class="dropdown">
+            <button type="button" class="dropdown-btn" onclick="toggleDropdown()">Select Days</button>
+            <div class="dropdown-content" id="dropdown-content">
+                <label><input type="checkbox" name="day_of_week[]" value="Monday"> Monday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Tuesday"> Tuesday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Wednesday"> Wednesday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Thursday"> Thursday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Friday"> Friday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Saturday"> Saturday</label>
+                <label><input type="checkbox" name="day_of_week[]" value="Sunday"> Sunday</label>
+            </div>
+        </div>
+        <br><br>
+
         <button type="submit">Get Recommendations</button>
     </form>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdown-content");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function(event) {
+            var dropdown = document.getElementById("dropdown-content");
+            var button = document.querySelector(".dropdown-btn");
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>

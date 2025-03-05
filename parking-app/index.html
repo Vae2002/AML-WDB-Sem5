@@ -13,8 +13,7 @@
         <img src="assets/parking.jpg" alt="Parkplatz-App Logo">
       </div>
       <ul>
-        <li><a href="#" id="login-link">Login</a></li>
-        <li><a href="#" id="create-account-link">Konto erstellen</a></li>
+        <li><a href="#" id="auth-link">Anmelden</a></li>
       </ul>
     </nav>
   </header>
@@ -22,12 +21,25 @@
   <main>
     <section class="hero">
       <h2>Finde und buche deinen perfekten Parkplatz</h2>
-      <form action="search.html">
-        <input type="text" placeholder="Standort eingeben" name="location" required>
-        <input type="date" name="date" required>
+      <form action="search.html" method="get">
+        <input type="text" id="location" name="location" placeholder="Standort eingeben" required>
+        <div class="dropdown hidden" id="weekday-dropdown">
+          <button type="button" id="dropdown-btn">Wochentage auswählen</button>
+          <div id="dropdown-content" class="dropdown-content">
+            <div class="weekdays-grid">
+              <label><input type="checkbox" name="day_of_week[]" value="Monday"> Montag</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Tuesday"> Dienstag</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Wednesday"> Mittwoch</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Thursday"> Donnerstag</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Friday"> Freitag</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Saturday"> Samstag</label>
+              <label><input type="checkbox" name="day_of_week[]" value="Sunday"> Sonntag</label>
+            </div>
+          </div>
+        </div>
         <button type="submit">Parkplatz finden</button>
       </form>
-    </section>
+    </section>    
 
     <section id="features">
       <h3>Unsere Features</h3>
@@ -52,36 +64,45 @@
     <p>© 2024 Parkplatz-App. Alle Rechte vorbehalten.</p>
   </footer>
 
-  <!-- Modale Fenster für Login und Konto erstellen -->
-  <div id="login-modal" class="modal">
+  <!-- Modal für Login und Konto erstellen -->
+  <div id="auth-modal" class="modal">
     <div class="modal-content">
-      <span class="close" id="close-login">&times;</span>
-      <h2>Login</h2>
-      <form>
-        <label for="username">Benutzername:</label>
-        <input type="text" id="username" required>
-        <label for="password">Passwort:</label>
-        <input type="password" id="password" required>
-        <button type="submit">Einloggen</button>
-      </form>
-    </div>
-  </div>
+      <span class="close" id="close-auth">&times;</span>
+      <h2 id="auth-modal-title">Login</h2>
+      <form id="auth-form">
+        <div id="login-fields">
+          <label for="email-login">E-Mail-Adresse:</label>
+          <input type="email" id="email-login" required>
 
-  <div id="create-account-modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="close-create-account">&times;</span>
-      <h2>Konto erstellen</h2>
-      <form>
-        <label for="new-username">Benutzername:</label>
-        <input type="text" id="new-username" required>
-        <label for="new-password">Passwort:</label>
-        <input type="password" id="new-password" required>
-        <button type="submit">Registrieren</button>
+          <label for="password-login">Passwort:</label>
+          <input type="password" id="password-login" required>
+        </div>
+        <div id="create-account-fields" class="hidden">
+          <label for="name-create">Name:</label>
+          <input type="text" id="name-create" required>
+
+          <label for="email-create">E-Mail:</label>
+          <input type="email" id="email-create" required>
+
+          <label for="password-create">Passwort:</label>
+          <input type="password" id="password-create" required>
+
+          <label for="license-plate-create">Nummernschild:</label>
+          <input type="text" id="license-plate-create" required>
+
+          <label for="address-create">Adresse:</label>
+          <input type="text" id="address-create" required>
+        </div>
+        <div class="button-container">
+          <button type="button" id="switch-auth-mode">Konto erstellen</button>
+          <button type="submit" id="auth-submit-button">Einloggen</button>
+        </div>
       </form>
     </div>
   </div>
 
   <script src="scripts/auth.js"></script>
   <script src="scripts/main.js"></script>
+  <script src="scripts/search.js"></script>
 </body>
 </html>

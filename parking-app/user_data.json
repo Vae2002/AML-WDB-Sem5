@@ -1,0 +1,57 @@
+[
+    {
+        "user_id": "UID84469",
+        "name": "Moritz Richter",
+        "username": "mrichter283",
+        "password": "Y43l6jMX",
+        "license_plate_number": "FR NQ 9563",
+        "credits": 495.7,
+        "email": "mrichter283@mail.com",
+        "phone_number": "+49 155 4639622",
+        "address": "72 Ludwigsburger Stra\u00dfe, T\u00fcbingen"
+    },
+    {
+        "user_id": "UID25840",
+        "name": "Paul Becker",
+        "username": "pbecker470",
+        "password": "yci8qZs5",
+        "license_plate_number": "FR DD 7811",
+        "credits": 72.87,
+        "email": "pbecker470@example.com",
+        "phone_number": "+49 156 9961303",
+        "address": "17 Technologiepark, Ulm"
+    },
+    {
+        "user_id": "UID89955",
+        "name": "Anna Ulrich",
+        "username": "aulrich408",
+        "password": "BrkcxOLu",
+        "license_plate_number": "FR ZX 1482",
+        "credits": 116.9,
+        "email": "aulrich408@mail.com",
+        "phone_number": "+49 151 6455515",
+        "address": "34 Beethovenstra\u00dfe, Augsburg"
+    },
+    {
+        "user_id": "UID47882",
+        "name": "Anna Schulz",
+        "username": "aschulz696",
+        "password": "PMkyRW86",
+        "license_plate_number": "FR QU 3857",
+        "credits": 284.26,
+        "email": "aschulz696@webmail.org",
+        "phone_number": "+49 155 1834348",
+        "address": "90 K\u00f6nigstra\u00dfe, Karlsruhe"
+    },
+    {
+        "user_id": "UID45034",
+        "name": "Emma Meier",
+        "username": "emeier817",
+        "password": "ZlML3IK7",
+        "license_plate_number": "FR QM 7833",
+        "credits": 66.34,
+        "email": "emeier817@service.net",
+        "phone_number": "+49 156 2378836",
+        "address": "91 Uhlandstra\u00dfe, Augsburg"
+    }
+]

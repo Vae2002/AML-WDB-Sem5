@@ -13,7 +13,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 3px 15px 1px 20px;
 }
 
 /* Logo */
@@ -80,8 +80,8 @@ nav ul {
   margin-left: auto;
 }
 
-
-/* Hero Section */
+/*--------------------------------------------------------------------------------*/
+/* Allgemeines Layout */
 .hero {
   text-align: center;
   margin-bottom: 3rem;
@@ -94,28 +94,118 @@ nav ul {
 
 .hero form {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
-.hero input,
-.hero button {
-  padding: 0.5rem 1rem;
+/* Standort-Eingabe */
+#location {
+  padding: 20px;
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #ccc;
+  width: 400px; /* Gleiche Breite wie der Dropdown-Button */
 }
 
+/* Submit-Button */
 .hero button {
   background-color: #004080;
   color: white;
   cursor: pointer;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  width: 400px; /* Gleiche Breite wie der Dropdown-Button */
+
 }
 
 .hero button:hover {
   background-color: #0066cc;
 }
+
+/* Versteckte Elemente */
+.hidden {
+  display: none;
+}
+
+/* Dropdown-Container */
+.dropdown {
+  position: relative;
+  width: 400px; /* Gleiche Breite wie das Inputfeld */
+}
+
+/* Dropdown-Button */
+#dropdown-btn {
+  background-color: #a1a2a3;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+#dropdown-btn:hover {
+  background-color: #0066cc;
+}
+
+/* Dropdown-Inhalt */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #cccccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  width: 100%;
+  z-index: 1000;
+  max-height: 375px;
+  overflow-y: auto;
+}
+
+/* Wochentage in 2-Spalten-Layout */
+.weekdays-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 gleich große Spalten */
+  gap: 5px 15px; /* Abstand zwischen Zeilen und Spalten */
+  padding: 10px;
+}
+
+/* Checkbox-Labels */
+.dropdown-content label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background 0.3s ease;
+  white-space: nowrap; /* Verhindert Zeilenumbrüche */
+}
+
+/* Checkboxen ausrichten */
+.dropdown-content input[type="checkbox"] {
+  margin-right: 8px; /* Abstand zwischen Checkbox und Text */
+  width: 16px;
+  height: 16px;
+}
+
+/* Hover-Effekt */
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* Dropdown anzeigen */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+/*---------------------------------------------------------------------*/
 
 #features {
   text-align: center;
@@ -153,71 +243,116 @@ footer {
 /*----------------------------------*/
 /* Karte */
 #map {
-  height: 90vh; /* Karte nimmt die ganze Höhe des Viewports ein */
+  height: 91.8%; /* Karte nimmt die ganze Höhe des Viewports ein */
   width: 100%;   /* Karte nimmt die ganze Breite ein */
   position: absolute; /* Karte auf der gesamten Seite positionieren */
-  top: 70px;
+  top: 57px;
   left: 0;
+  bottom: 1px;
   z-index: 0; /* Karte im Hintergrund */
   border: none; /* Keine Ränder */
 }
 
-/* Filter speziell für search.html */
-body.search-page .filters {
+/* Filter Button */
+.filter-btn {
   position: absolute;
-  top: 100px; /* Abstand von oben */
+  top: 80px; /* Abstand von oben */
   right: 20px; /* Abstand von links */
-  background-color: rgba(255, 255, 255, 0.8); /* Leicht transparente Hintergrundfarbe */
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 1; /* Über der Karte */
+}
+
+.filter-btn:hover {
+  background-color: #0066cc;
+}
+
+/* Pop-up Filterbereich */
+.filter-popup {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Hintergrundfarbe leicht transparent */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  z-index: 1; /* Filterbereich über der Karte */
+  z-index: 2; /* Über der Karte */
   max-width: 350px; /* Maximalbreite */
   width: 100%;
-  box-sizing: border-box;
+  display: none; /* Anfangs unsichtbar */
 }
 
-/* Titel im Filter */
-body.search-page .filters h3 {
+/* Schließen Button für das Pop-up */
+.close-filter {
+  font-size: 2rem;
+  color: #004080;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-filter:hover {
+  color: #0066cc;
+}
+
+/* Filter Titel */
+.filter-popup h3 {
   margin-top: 0;
   font-size: 1.4rem;
 }
 
 /* Formularelemente im Filter */
-body.search-page .filters form {
+.filter-popup form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-body.search-page .filters input,
-body.search-page .filters button {
+.filter-popup input,
+.filter-popup button {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-body.search-page .filters input:focus,
-body.search-page .filters button:focus {
+.filter-popup input:focus,
+.filter-popup button:focus {
   outline: none;
   border-color: #004080;
 }
 
-body.search-page .filters button {
+.filter-popup button {
   background-color: #004080;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-body.search-page .filters button:hover {
+.filter-popup button:hover {
   background-color: #0066cc;
 }
 
+/* Stil für das Standort-Eingabefeld */
+#location {
+  padding: 0.75rem !important; /* Wichtiges Styling */
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  width: 100%;
+}
+
+#location:focus {
+  outline: none !important;
+  border-color: #004080 !important; /* Gleiche Farbe wie bei anderen Eingabefeldern */
+}
 
 /*------------------------------------------------------------*/
-
 /* Modale Fenster Styling */
 .modal {
   display: none;
@@ -228,7 +363,7 @@ body.search-page .filters button:hover {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
+  padding-top: 0.5%;
 }
 
 .modal-content {
@@ -270,52 +405,20 @@ body.search-page .filters button:hover {
   background-color: #0066cc;
 }
 
-/* Anpassungen für die Anzeige */
-.search-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
+.hidden {
+  display: none;
 }
 
-.filters {
-  flex: 0 0 350px; /* Filter breiter gemacht */
-  box-sizing: border-box;
-}
-
-
-/* Anpassungen für das Login und Create Account Form */
-.account-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem; /* Fügt Padding hinzu, um den Inhalt vom Rand zu entfernen */
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  max-width: 400px; /* Formularbreite begrenzen */
-  width: 100%; /* Maximiert die Breite */
-}
-
-.account-form h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
+/* Weitere Stile */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Größerer Abstand zwischen den Formularelementen */
-  width: 100%; /* Maximiert die Breite */
+  gap: 12px;
 }
 
 label {
   font-size: 1rem;
   color: #333;
-  margin-bottom: 0px; /* Abstand zwischen Label und Input */
 }
 
 input {
@@ -323,8 +426,10 @@ input {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%; /* Sicherstellen, dass das Input-Feld gleichmäßig ist */
-  box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+
 }
 
 input:focus {
@@ -332,7 +437,15 @@ input:focus {
   outline: none;
 }
 
-button {
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+
+.button-container button {
+  flex: 1;
   padding: 0.75rem;
   font-size: 1.1rem;
   background-color: #004080;
@@ -341,11 +454,10 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  width: 100%; /* Maximiert die Breite */
-  box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
+  box-sizing: border-box;
 }
 
-button:hover {
+.button-container button:hover {
   background-color: #0066cc;
 }
 

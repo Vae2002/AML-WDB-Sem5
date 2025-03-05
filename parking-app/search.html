@@ -20,22 +20,26 @@
 
   <main>
     <div class="search-container">
-      <!-- Filterbereich über der Karte -->
-      <div class="filters">
+      <!-- Button für Filter anzeigen -->
+      <button id="filter-btn" class="filter-btn">Filter anzeigen</button> <!-- Button für Filter -->
+      
+      <!-- Pop-up Filterbereich -->
+      <div id="filter-popup" class="filter-popup">
+        <span id="close-filter" class="close-filter">&times;</span> <!-- Schließen Button -->
         <h3>Filter</h3>
         <form id="filter-form">
           <label for="location">Standort:</label>
-          <input type="text" id="location" placeholder="Standort eingeben">
-
+          <input type="text" id="location" class="location-input" placeholder="Standort eingeben">
+    
           <label for="price">Maximaler Preis (€):</label>
           <input type="number" id="price" placeholder="50">
-
+    
           <label for="distance">Maximale Entfernung (km):</label>
           <input type="number" id="distance" placeholder="10">
-
+    
           <label for="start-date">Startdatum:</label>
           <input type="date" id="start-date">
-
+    
           <button type="submit">Anwenden</button>
         </form>
       </div>
@@ -49,6 +53,6 @@
     <p>© 2024 Parkplatz-App. Alle Rechte vorbehalten.</p>
   </footer>
 
-  <script src="scripts/main.js"></script>
+  <script src="scripts/search.js"></script>
 </body>
 </html>

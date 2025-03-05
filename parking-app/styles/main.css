@@ -352,6 +352,31 @@ footer {
   border-color: #004080 !important; /* Gleiche Farbe wie bei anderen Eingabefeldern */
 }
 
+/* Container für das Standort-Eingabefeld */
+.location-container {
+  padding: 0.75rem !important; /* Wichtiges Styling */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Abstand zwischen Label und Input */
+  width: 400px;  
+}
+
+/* Stil nur für das Standort-Eingabefeld */
+.location-input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  height: 55px;
+}
+
+.location-input:focus {
+  outline: none;
+  border-color: #004080; /* Gleiche Farbe wie bei anderen Eingabefeldern */
+  box-shadow: 0 0 5px rgba(0, 64, 128, 0.5); /* Leichter blauer Glow beim Fokus */
+}
+
+
 /*------------------------------------------------------------*/
 /* Modale Fenster Styling */
 .modal {

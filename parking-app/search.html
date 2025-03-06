@@ -8,11 +8,11 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
-<body class="search-page"> <!-- Klasse search-page hinzugefügt -->
+<body class="search-page">
   <header>
     <nav>
       <div class="logo">
-        <img src="assets/parking.jpg" alt="Parkplatz-App Logo">
+        <img src="assets/parking.png" alt="Parkplatz-App Logo">
       </div>
       <a href="index.html" class="back-link">Zurück zur Startseite</a>
     </nav>
@@ -21,15 +21,15 @@
   <main>
     <div class="search-container">
       <!-- Button für Filter anzeigen -->
-      <button id="filter-btn" class="filter-btn">Filter anzeigen</button> <!-- Button für Filter -->
+      <button id="filter-btn" class="filter-btn">Filter anzeigen</button>
       
       <!-- Pop-up Filterbereich -->
       <div id="filter-popup" class="filter-popup">
-        <span id="close-filter" class="close-filter">&times;</span> <!-- Schließen Button -->
+        <span id="close-filter" class="close-filter">&times;</span>
         <h3>Filter</h3>
         <form id="filter-form">
           <label for="location">Standort:</label>
-          <input type="text" id="location" class="location-input" placeholder="Standort eingeben">
+          <input type="text" id="location" class="filter-input" placeholder="Standort eingeben">
     
           <label for="price">Maximaler Preis (€):</label>
           <input type="number" id="price" placeholder="50">
@@ -37,22 +37,41 @@
           <label for="distance">Maximale Entfernung (km):</label>
           <input type="number" id="distance" placeholder="10">
     
-          <label for="start-date">Startdatum:</label>
-          <input type="date" id="start-date">
-    
+          <label for="start-datetime">Startdatum:</label>
+          <input type="datetime-local" id="start-datetime">
+
+          <label for="end-datetime">Enddatum:</label>
+          <input type="datetime-local" id="end-datetime">
+
           <button type="submit">Anwenden</button>
         </form>
       </div>
-
       <!-- Karte -->
       <div id="map"></div>
     </div>
+
+    <!-- Sidebar für Parkplatzinformationen -->
+    <div class="parking-sidebar">
+      <!-- Sortieroptionen -->
+      <div class="sort-container">
+        <p><b>Sortieren:</b></p>
+        <div class="sort-options">
+          <button id="sort-price">Nach Preis</button>
+          <button id="sort-capacity">Nach Kapazität</button>
+        </div>
+      </div>
+      <!-- Container für Liste und Detailansicht -->
+      <div id="sidebar-content">
+        <div id="parking-list"></div>
+        <div id="parking-details" class="hidden">
+          <h2 id="details-title">Parkplatz Details</h2>
+          <div id="details-content"></div>
+          <button id="back-to-list">Zurück zur Liste</button>
+        </div>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>© 2024 Parkplatz-App. Alle Rechte vorbehalten.</p>
-  </footer>
-
+  
   <script src="scripts/search.js"></script>
 </body>
 </html>

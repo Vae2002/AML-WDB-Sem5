@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const switchAuthModeButton = document.getElementById("switch-auth-mode");
   const loginFields = document.getElementById("login-fields");
   const createAccountFields = document.getElementById("create-account-fields");
+  const welcomeMessage = document.getElementById("welcome-message"); // Neues Element für die Willkommensnachricht
 
   let isLoginMode = true;
 
@@ -55,8 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateAuthUI = () => {
     if (currentUser) {
       authLink.textContent = `Abmelden (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address})`; // Zeige username, user_id und Adresse an
+      welcomeMessage.textContent = `Willkommen ${currentUser.name}`; // Zeige den Namen des Benutzers an
     } else {
       authLink.textContent = "Anmelden";
+      welcomeMessage.textContent = ""; // Leere die Willkommensnachricht, wenn niemand angemeldet ist
     }
   };  
   updateAuthUI();
@@ -183,6 +186,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-

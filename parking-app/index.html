@@ -10,9 +10,10 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="assets/parking.jpg" alt="Parkplatz-App Logo">
+        <img src="assets/parking.png" alt="Parkplatz-App Logo">
       </div>
       <ul>
+        <li><span id="welcome-message"></span></li> <!-- Neues Element für die Willkommensnachricht -->
         <li><a href="#" id="auth-link">Anmelden</a></li>
       </ul>
     </nav>
@@ -39,6 +40,15 @@
               <label><input type="checkbox" name="day_of_week[]" value="Sunday"> Sonntag</label>
             </div>
           </div>
+
+          <div class="time-container">
+            <label for="start-date">Startdatum</label>
+            <input type="datetime-local" id="start-date" name="start_date" >
+          
+            <label for="end-date">Enddatum</label>
+            <input type="datetime-local" id="end-date" name="end_date" >
+          </div>
+          
         </div>
         <button type="submit">Parkplatz finden</button>
       </form>

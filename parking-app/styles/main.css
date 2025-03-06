@@ -18,15 +18,25 @@ header {
 
 /* Logo */
 .logo img {
-  height: 50px;
-  width: auto;
+  max-width: 100px;
   border-radius: 8px;
-  margin-right: auto;
 }
 
 header h1 {
   font-size: 1.5rem;
   margin: 0;
+}
+
+/* Styling für die Willkommensnachricht */
+#welcome-message {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  /* Damit das Element in der Mitte des Headers erscheint */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Zentriert das Element horizontal */
 }
 
 header nav ul {
@@ -182,7 +192,7 @@ nav ul {
   align-items: center;
   font-size: 1rem;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 5px 5px 0px 0px;
   transition: background 0.3s ease;
   white-space: nowrap; /* Verhindert Zeilenumbrüche */
 }
@@ -203,6 +213,35 @@ nav ul {
 /* Dropdown anzeigen */
 .dropdown.active .dropdown-content {
   display: block;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Zeitrahmen Eingabe-Container */
+/* Container für das Zeitbereichs-Formular */
+.time-container {
+  display: flex;
+  gap: 20px;  /* Abstand zwischen den Eingabefeldern */
+  margin-top: 20px;
+  margin-left: -25%;
+  align-items: center;
+}
+
+/* Styling für die Zeit-Eingabefelder */
+input[type="datetime-local"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 200px;  /* Maximale Breite für jedes Feld */
+}
+
+/* Optional: Styling der Labels */
+.time-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 17px;
 }
 
 /*---------------------------------------------------------------------*/
@@ -243,12 +282,9 @@ footer {
 /*----------------------------------*/
 /* Karte */
 #map {
-  height: 91.8%; /* Karte nimmt die ganze Höhe des Viewports ein */
   width: 100%;   /* Karte nimmt die ganze Breite ein */
   position: absolute; /* Karte auf der gesamten Seite positionieren */
-  top: 57px;
   left: 0;
-  bottom: 1px;
   z-index: 0; /* Karte im Hintergrund */
   border: none; /* Keine Ränder */
 }
@@ -256,8 +292,8 @@ footer {
 /* Filter Button */
 .filter-btn {
   position: absolute;
-  top: 80px; /* Abstand von oben */
-  right: 20px; /* Abstand von links */
+  top: 10%; /* Abstand von oben */
+  right: 27%; /* Abstand von links */
   background-color: #004080;
   color: white;
   font-weight: bold;
@@ -274,8 +310,8 @@ footer {
 /* Pop-up Filterbereich */
 .filter-popup {
   position: fixed;
-  top: 80px;
-  right: 20px;
+  top: 14%;
+  right: 45%;
   background-color: rgba(255, 255, 255, 0.9); /* Hintergrundfarbe leicht transparent */
   padding: 20px;
   border-radius: 8px;
@@ -310,7 +346,7 @@ footer {
 .filter-popup form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 5px;
 }
 
 .filter-popup input,
@@ -376,6 +412,27 @@ footer {
   box-shadow: 0 0 5px rgba(0, 64, 128, 0.5); /* Leichter blauer Glow beim Fokus */
 }
 
+/* Stil für Datum- und Uhrzeitfelder */
+/* Stil für Datum- und Uhrzeitfelder (längere Breite) */
+#start-datetime, 
+#end-datetime {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%; /* Maximale Breite innerhalb des Containers */
+  height: 44px;
+  min-width: 349px; /* Mindestbreite für längere Anzeige */
+  box-sizing: border-box; /* Verhindert, dass Padding & Border die Größe beeinflussen */
+}
+
+/* Fokus-Effekt für Konsistenz */
+#start-datetime:focus, 
+#end-datetime:focus {
+  outline: none;
+  border-color: #004080;
+  box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+}
 
 /*------------------------------------------------------------*/
 /* Modale Fenster Styling */
@@ -387,7 +444,7 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(232, 25, 25, 0.4);
   padding-top: 0.5%;
 }
 
@@ -521,3 +578,249 @@ a:hover {
 }
 
 
+/*------------------------------------------*/
+/* Sidebar für Parkplätze */
+.parking-sidebar {
+  position: fixed;
+  right: 0;
+  top: 64px;
+  width: 24%;
+  height: 20px;
+  background: #f4f4f4;
+  overflow-y: auto;
+  padding: 10px;
+  border-left: 2px solid #ccc;
+
+}
+
+/* Einzelne Parkplätze in der Sidebar */
+.parking-item {
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Stil für den Suchcontainer */
+.search-container {
+  display: flex;
+  height: calc(100vh - 120px); /* Höhe des Viewports minus Header und Footer */
+}
+
+/* Stil für die Karte */
+#map {
+  flex: 3; /* Nimmt 3/4 des verfügbaren Platzes ein */
+  height: 91%;
+  top: 64px;
+  overflow: hidden; /* Kein Scrollen in der Karte */
+
+}
+
+/* Stil für die Sidebar */
+.parking-sidebar {
+  flex: 1; /* Nimmt 1/4 des verfügbaren Platzes ein */
+  height: 100%;
+  overflow-y: auto; /* Scrollen, falls die Liste zu lang ist */
+  background-color: #f4f4f4;
+  padding: 10px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Stil für die Sortieroptionen */
+.sort-options {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px; /* Abstand zwischen den Buttons */
+}
+
+.sort-options button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.sort-options button:hover {
+  background-color: #0056b3;
+}
+
+/* Stil für jedes Parkplatzfenster */
+.parking-item {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.parking-item h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.parking-item p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+
+.sort-container {
+  position: fixed;
+  top: 0; /* Fixiert das Sortierfenster an der oberen Position der Sidebar */
+  background: #f4f4f4;
+  z-index: 100; /* Höherer Wert, um sicherzustellen, dass es über anderen Elementen bleibt */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 64px;
+}
+
+.parking-sidebar {
+  flex: 1;
+  height: 100vh; /* Sidebar nimmt die volle Höhe des Bildschirms ein */
+  overflow-y: auto; /* Scrollen, falls die Liste zu lang ist */
+  background-color: #f4f4f4;
+  padding: 10px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.sort-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px; /* Entfernt den oberen Abstand */
+  padding-left: 15px;
+  
+}
+
+.sort-options button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.sort-options button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Abstand von oben für die Liste */
+#parking-list {
+  margin-top: 80px; /* Abstand nach oben */
+}
+
+/* Stil für jedes Parkplatzfenster (verbessert) */
+.parking-item {
+  background-color: #ffffff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-left: 5px solid #007bff; /* Blaue Akzentlinie */
+}
+
+/* Hover-Effekt für eine leichte Vergrößerung */
+.parking-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Stil für die Parkplatz-Titel (z. B. "Property 50") */
+.parking-item h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #4b8cd2; /* Blaue Hintergrundfarbe */
+  padding: 3px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Stil für die Parkplatz-Details */
+.parking-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Trennlinie zwischen Parkplatz-Details */
+.parking-item p:not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Stil für den Preis */
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #28a745; /* Grüner Farbton */
+}
+
+/* Stil für die Kapazität */
+.capacity {
+  font-size: 14px;
+  color: #6c757d; /* Grauer Farbton */
+}
+
+
+/*Mehr Park Info*/
+/*-----------------------------------------------------------------*/
+/* Detailansicht für Parkplatz */
+#parking-details {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#parking-details.hidden {
+  display: none;
+}
+
+#details-title {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  color: #333;
+}
+
+#details-content p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #666;
+}
+
+#details-content h3 {
+  margin: 20px 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Zurück-Button */
+#back-to-list {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#back-to-list:hover {
+  background-color: #0056b3;
+}
+
+/* Sortiercontainer ausblenden, wenn die Detailansicht aktiv ist */
+#parking-details:not(.hidden) ~ .sort-container {
+  display: none;
+}

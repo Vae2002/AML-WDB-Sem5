@@ -62,7 +62,21 @@
       </div>
       <!-- Container für Liste und Detailansicht -->
       <div id="sidebar-content">
-        <div id="parking-list"></div>
+        <div id="parking-list">
+          <h2>Private Parkplätze</h2>
+          <ul>
+            {% for parking in top15_private %}
+              <li>{{ parking.name }} - {{ parking.address }} ({{ parking.calc_distance }} km)</li>
+            {% endfor %}
+          </ul>
+        
+          <h2>Öffentliche Parkplätze</h2>
+          <ul>
+            {% for parking in top1_public %}
+              <li>{{ parking.name }} - {{ parking.address }} ({{ parking.calc_distance }} km)</li>
+            {% endfor %}
+          </ul>
+        </div>
         <div id="parking-details" class="hidden">
           <h2 id="details-title">Parkplatz Details</h2>
           <div id="details-content"></div>

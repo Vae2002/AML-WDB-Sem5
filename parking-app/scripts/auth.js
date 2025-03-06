@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Funktion zur Aktualisierung der UI basierend auf dem Anmeldezustand
+  // nachher diese (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address}) einfach raus nehemen
   const updateAuthUI = () => {
     if (currentUser) {
       authLink.textContent = `Abmelden (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address})`; // Zeige username, user_id und Adresse an

@@ -256,7 +256,7 @@ def recommend():
         ranked_public = rank_candidates(public_in_cluster, user_vector_public)
         top1_public = ranked_public.head(1)
     
-    return render_template('results.html', uid=uid,
+    return render_template('search.html', uid=uid,
                            top15_private=top15_private.to_dict(orient='records'),
                            top1_public=top1_public.to_dict(orient='records'),
                            override_address=user_address,

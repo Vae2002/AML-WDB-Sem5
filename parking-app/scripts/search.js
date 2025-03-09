@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initMap() {
-  const map = L.map("map").setView([51.1657, 10.4515], 6); // Deutschland-Zentrum
+  const map = L.map("map").setView([47.9926652764847, 7.8601410291949465], 13); // Deutschland-Zentrum
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"

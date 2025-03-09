@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // nachher diese (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address}) einfach raus nehemen
   const updateAuthUI = () => {
     if (currentUser) {
-      authLink.textContent = `Abmelden (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address})`; // Zeige username, user_id und Adresse an
+      authLink.textContent = `Abmelden`; // Zeige username, user_id und Adresse an
       welcomeMessage.textContent = `Willkommen ${currentUser.name}`; // Zeige den Namen des Benutzers an
     } else {
       authLink.textContent = "Anmelden";

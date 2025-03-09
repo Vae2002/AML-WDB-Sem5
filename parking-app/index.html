@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parkplatz-App</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">
-        <img src="assets/parking.png" alt="Parkplatz-App Logo">
+        <img src="{{ url_for('static', filename='styles/parking.png') }}" alt="Parking Image">
       </div>
       <ul>
-        <li><span id="welcome-message"></span></li> <!-- Neues Element für die Willkommensnachricht -->
+        <li><span id="welcome-message"></span></li>
         <li><a href="#" id="auth-link">Anmelden</a></li>
       </ul>
     </nav>
@@ -22,12 +22,12 @@
   <main>
     <section class="hero">
       <h2>Finde und buche deinen perfekten Parkplatz</h2>
-      <form action="search.html" method="get">
+      <form action="{{ url_for('search') }}" method="get">
         <div class="location-container">
           <label for="location"></label>
           <input type="text" id="location-input" class="location-input" name="location" placeholder="Standort eingeben" required>
         </div>
-                <div class="dropdown hidden" id="weekday-dropdown">
+        <div class="dropdown hidden" id="weekday-dropdown">
           <button type="button" id="dropdown-btn">Wochentage auswählen</button>
           <div id="dropdown-content" class="dropdown-content">
             <div class="weekdays-grid">
@@ -43,12 +43,11 @@
 
           <div class="time-container">
             <label for="start-date">Startdatum</label>
-            <input type="datetime-local" id="start-date" name="start_date" >
+            <input type="datetime-local" id="start-date" name="start_date">
           
             <label for="end-date">Enddatum</label>
-            <input type="datetime-local" id="end-date" name="end_date" >
+            <input type="datetime-local" id="end-date" name="end_date">
           </div>
-          
         </div>
         <button type="submit">Parkplatz finden</button>
       </form>
@@ -114,8 +113,8 @@
     </div>
   </div>
 
-  <script src="scripts/auth.js"></script>
-  <script src="scripts/main.js"></script>
-  <script src="scripts/search.js"></script>
+  <script src="{{ url_for('static', filename='styles/auth.js') }}"></script>
+  <script src="{{ url_for('static', filename='styles/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='styles/search.js') }}"></script>
 </body>
 </html>

@@ -2,6 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const userDataPath = "user_data.json";
 
+
+  let user_id = null;
+  let address = null;
+
+  if (currentUser) {
+    user_id = currentUser.user_id || "";
+    address = currentUser.address || "";
+  }
+
+
   // Funktion zum Laden der Benutzerdaten
   const loadUsers = async () => {
     try {
@@ -56,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // nachher diese (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address}) einfach raus nehemen
   const updateAuthUI = () => {
     if (currentUser) {
-      authLink.textContent = `Abmelden (${currentUser.username} | ${currentUser.user_id} | ${currentUser.address})`; // Zeige username, user_id und Adresse an
+      authLink.textContent = `Abmelden`; // Zeige username, user_id und Adresse an
       welcomeMessage.textContent = `Willkommen ${currentUser.name}`; // Zeige den Namen des Benutzers an
     } else {
       authLink.textContent = "Anmelden";

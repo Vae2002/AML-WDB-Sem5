@@ -8,7 +8,7 @@ from sklearn.cluster import KMeans
 from geopy.exc import GeocoderUnavailable
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.dirname(os.path.abspath(__file__)), static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static'))
 
 # Global variables to hold data
 user_data = None
@@ -23,7 +23,7 @@ public_history = None   # For public history records
 # ---------------------------
 def load_data():
     global user_data, history_data, private_parking_data, public_parking_data, merged_history, public_history
-    user_data = pd.read_json(os.path.join('database_generator', 'user_data.json'))
+    user_data = pd.read_json(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'user_data.json'))
     history_data = pd.read_json(os.path.join('database_generator', 'history_data.json'))
     private_parking_data = pd.read_json(os.path.join('database_generator', 'private_parking.json'))
     public_parking_data = pd.read_json(os.path.join('database_generator', 'public_parking.json'))
@@ -144,14 +144,14 @@ def is_parking_open(parking, start_time, end_time):
 def index():
     return render_template('index.html')
 
-@app.route('/recommend', methods=['GET'])
-def recommend():
+@app.route('/search', methods=['GET'])
+def search():
     uid = request.args.get('uid')
-    address_override = request.args.get('address_override')
-    max_price_str = request.args.get('max_price')
-    max_distance_str = request.args.get('max_distance')
-    start_time = request.args.get('start_time')
-    end_time = request.args.get('end_time')
+    address_override = request.args.get('location')
+    max_price_str = request.args.get('price')
+    max_distance_str = request.args.get('distance')
+    start_time = request.args.get('start-datetime')
+    end_time = request.args.get('end-datetime')
     
     max_price = float(max_price_str) if max_price_str and max_price_str.strip() != "" else None
     max_distance = float(max_distance_str) if max_distance_str and max_distance_str.strip() != "" else None
@@ -264,7 +264,6 @@ def recommend():
                            max_distance=max_distance,
                            start_time=start_time,
                            end_time=end_time)
-
 # ---------------------------
 # Run the App
 # ---------------------------
